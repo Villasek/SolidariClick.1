@@ -1,0 +1,25 @@
+<section class="d-flex align-item-center justify-content-center">
+    <form [formGroup]="FormRegister" >
+        <div class="row row mt-4 text-center">
+            <div class="col-12">
+                <img src="{{logo}}" alt="logo" class="logo">
+            </div>
+            <div class="col-12">
+                <input type="text" pInputText formControlName="username" autocomplete="off" placeholder="ingrese su correo" >
+            </div>
+            <div class="col-12 mt-2">
+                <input type="text" pInputText formControlName="username" autocomplete="off" placeholder="ingrese su nombre" >
+            </div>
+            <div class="col-12 mt-2">
+                <input type="text" pInputText formControlName="username" autocomplete="off" placeholder="ingrese su rut" >
+            </div>
+            <div class="col-12 mt-2">
+                <input type="text" pInputText formControlName="username" autocomplete="off" placeholder="ingrese su contraseña" >
+            </div>
+            <div class="col-12 mt-2" >
+                <p-button label="Registrarme" [link]="true"></p-button>
+                <a href=""></a>
+            </div>
+        </div>
+    </form>
+</section>

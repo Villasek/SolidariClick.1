@@ -10,6 +10,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
+import { RegistroComponent } from './module/registro/registro.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ButtonModule } from 'primeng/button';
     AppComponent,
     LoginComponent,
     ActividadComponent,
-    DetallesComponent
+    DetallesComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

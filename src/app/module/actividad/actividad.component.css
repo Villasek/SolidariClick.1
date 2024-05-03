@@ -1,0 +1,27 @@
+.principal{
+    margin: 20px;
+    text-align: center;
+}
+.actividad {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow: hidden;
+  }
+  .actividad img {
+    float: left;
+    margin-right: 10px;
+    width: 100px;
+    height: auto;
+  }
+  .actividad .descripcion {
+    float: left;
+  }
+  .boton-inscripcion {
+    float: right;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
