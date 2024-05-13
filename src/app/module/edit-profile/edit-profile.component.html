@@ -1,0 +1,22 @@
+
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label>Imagen de perfil:</label>
+    <img [src]="imageUrl" alt="Imagen de perfil" *ngIf="imageUrl" style="max-width: 150px; max-height: 80px; border-radius:20px; display:block; margin:auto;  ">
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    
+    <label></label>
+    <input type="text" formControlName="name" placeholder="Nombre">
+  
+    <label></label>
+    <input type="email" formControlName="email" placeholder="Correo Electronico">
+  
+    <label></label>
+    <input type="text" formControlName="telefono" placeholder="Telefono"> 
+  
+    <label></label>
+    <input type="password" formControlName="password" placeholder="Contraseña">
+  
+    <button type="submit" >Actualizar perfil</button>
+  </form>
+  <app-footer-navigation></app-footer-navigation>

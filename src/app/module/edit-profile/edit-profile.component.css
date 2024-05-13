@@ -1,0 +1,45 @@
+
+
+/* edit-profile.component.css */
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 5px;
+    background-color:rgb(247, 244, 244) ;
+   
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: orangered;
+    display: block;
+    margin: auto;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0026ff;
+  }
+  
+ 

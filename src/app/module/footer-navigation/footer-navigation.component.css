@@ -1,0 +1,29 @@
+/* footer-navigation.component.css */
+.footer {
+    background-color: #ffffff;
+    color: #ffffff;
+    text-align: center;
+    padding: 0px ;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer nav ul {
+    list-style-type: none;
+    padding: 0;
+    border-top: 1px solid #615f5f; /* Añade un borde superior para separar de los contenidos */
+  }
+  
+  .footer nav ul li {
+    display:inline;
+    margin-right: 25px;
+  }
+  
+  .footer nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    border-right: 1px solid #555; /* Añade un borde derecho entre los elementos */
+    padding-right: 15px; /* Añade un espacio entre el borde y el texto */
+  }
+  

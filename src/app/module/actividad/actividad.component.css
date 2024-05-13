@@ -1,10 +1,11 @@
 .principal{
     margin: 20px;
     text-align: center;
+    
 }
 .actividad {
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #070707;
     padding: 10px;
     overflow: hidden;
   }
@@ -20,8 +21,28 @@
   .boton-inscripcion {
     float: right;
     padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: orangered;
+    color: #ffffff;
     border: none;
     cursor: pointer;
   }
+  .actividades {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.actividad {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.actividad img {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    max-width: 400px;
+}
+
+.descripcion {
+    flex: 1 1 auto;
+}

@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { RegistroComponent } from './module/registro/registro.component';
+import { EditProfileComponent } from './module/edit-profile/EditProfileComponent';
+import { HttpClientModule } from '@angular/common/http';
+import { FooterNavigationComponent } from './module/footer-navigation/footer-navigation.component';
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { RegistroComponent } from './module/registro/registro.component';
     LoginComponent,
     ActividadComponent,
     DetallesComponent,
-    RegistroComponent
+    RegistroComponent,
+    EditProfileComponent,
+    FooterNavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +34,7 @@ import { RegistroComponent } from './module/registro/registro.component';
     PasswordModule,
     ButtonModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
