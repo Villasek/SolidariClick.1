@@ -69,4 +69,19 @@ export class UsersService extends PrismaClient {
       token: this.jwtService.sign({ id: usuario.id }),
     };
   }
+  perfil(id: string) {
+    return this.user.findUnique({
+      where: {
+        id: id,
+      },
+      select: {
+        address: true,
+        email: true,
+        name: true,
+        roles: true,
+        rut: true,
+      },
+    });
+  }
 }
+

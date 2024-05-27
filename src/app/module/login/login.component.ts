@@ -21,19 +21,7 @@ export class LoginComponent {
     });
   }
 
-  /*
-  login(): void {
-    if (this.formLogin.invalid) {
-      this.formLogin.markAllAsTouched();
-      Object.keys(this.formLogin.controls).forEach(controlName =>
-        this.formLogin.controls[controlName].markAsDirty()
-      );
-      return;
-    }
 
-    console.log(this.formLogin.value);
-  }
-*/
   async submit(){
     
     try {
@@ -45,7 +33,7 @@ export class LoginComponent {
 
     Cookies.set('session', JSON.stringify(user.data.token))
 
-    // Obtener token de las esion
+    // Obtener token de las sesion
     console.log({
       userSession: JSON.parse(Cookies.get('session') ?? '{}')
     })

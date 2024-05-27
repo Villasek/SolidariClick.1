@@ -3,6 +3,7 @@ import { properties } from '../../../assets/properties/properties';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -14,7 +15,7 @@ export class RegistroComponent implements OnInit {
   logo = properties.logo;
   esAlien: boolean = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private readonly router: Router) {
     this.FormRegister = this.fb.group({
       email: [''],
       nombre: [''],
@@ -53,12 +54,7 @@ export class RegistroComponent implements OnInit {
       userSession: JSON.parse(Cookies.get('session') ?? '{}')
     })
 
-    // Ocupar token en petición HTTP
-    axios.get('http://127.0.0.1:300/endpoint', {
-      headers: {
-        Authorization: `Bearer ${JSON.parse(Cookies.get('session') ?? '{}')}`
-      }
-    })
+    this.router.navigate(['/home'])
 
   }
 }

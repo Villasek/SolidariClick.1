@@ -1,0 +1,19 @@
+<section>
+    <div class="profile">
+      <img [src]="userData.imageUrl" alt="Foto de perfil">
+    </div>
+    <div class="user-info">
+      <p><strong>Nombre:</strong> {{ userData.name }}</p>
+      <p><strong>Email:</strong> {{ userData.email }}</p>
+      <p><strong>Rol:</strong> {{ userData.roles }}</p>
+      <p><strong>RUT:</strong> {{ userData.rut }}</p>
+      <p><strong>Dirección:</strong> {{ userData.address }}</p>
+      
+      <p><strong>Historial de actividades:</strong> </p>
+  
+      <!-- Render condicional del botón "Crear oportunidad" -->
+      <button *ngIf="userData.roles === 'empresa'">Crear oportunidad</button>
+    </div>
+  </section>
+  <app-footer-navigation></app-footer-navigation>
+  

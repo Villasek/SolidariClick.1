@@ -1,37 +1,18 @@
 <section>
-    <div class="principal">
+  <div class="principal">
     <h1>Lista de actividades</h1>
+  </div>
+  <div class="actividades">
+    <div *ngFor="let actividad of activityData" class="actividad">
+      <img [src]="'http://127.0.0.1:3000/imagenes/' + actividad.image" alt="{{ actividad.name }}">
+      <div class="descripcion">
+        <h2>{{ actividad.name }}</h2>
+        <p>{{ actividad.description }}</p>
+        <p>Fecha: {{ actividad.date }}</p>
+        <p>Ubicación: {{ actividad.location }}</p>
+        <button class="boton-inscripcion">Inscribirme</button>
+      </div>
     </div>
-    <div class="actividades">
-        <body>
-
-            <h1>Lista de Actividades</h1>
-            
-            <div class="actividad">
-              <img src="https://elrecogedor.es/wp-content/uploads/2023/05/retirada-de-escombros-el-recogedor-1024x512.jpg" alt="Actividad 1">
-              <div class="descripcion">
-                <h2>Recoleccion de escombros</h2>
-                <p>Se necesitan voluntarios para recoger escombros</p>
-                <button class="boton-inscripcion">Inscribirme</button>
-              </div>
-            </div>
-            
-            <div class="actividad">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4YHABnvysEHZ2JpGvuZG8PhsmpskfWyuwzj0NSkXXzg&s" alt="Actividad 2">
-              <div class="descripcion">
-                <h2>Plantacion de arboles</h2>
-                <p>Se necesitan voluntarios para ir al parque municipal de la florida a plantar arboles</p>
-                <button class="boton-inscripcion">Inscribirme</button>
-              </div>
-            </div>
-            
-            <!-- Puedes agregar más actividades siguiendo el mismo patrón -->
-            
-            </body>
-
-    </div>
-
-
-    
+  </div>
 </section>
 <app-footer-navigation></app-footer-navigation>

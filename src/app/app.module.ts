@@ -14,6 +14,7 @@ import { RegistroComponent } from './module/registro/registro.component';
 import { EditProfileComponent } from './module/edit-profile/EditProfileComponent';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterNavigationComponent } from './module/footer-navigation/footer-navigation.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FooterNavigationComponent } from './module/footer-navigation/footer-nav
     DetallesComponent,
     RegistroComponent,
     EditProfileComponent,
-    FooterNavigationComponent
+    FooterNavigationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
