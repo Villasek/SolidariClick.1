@@ -12,8 +12,13 @@
       <p><strong>Historial de actividades:</strong> </p>
   
       <!-- Render condicional del botón "Crear oportunidad" -->
-      <button *ngIf="userData.roles === 'empresa'">Crear oportunidad</button>
-    </div>
+     </div>
+     <div class="botones">
+     <button *ngIf="userData.roles === 'empresa'" routerLink="/create">Crear oportunidad</button>
+     <br>
+     <br>
+     <button *ngIf="userData.roles === 'empresa'">Solicitudes</button>
+     </div>
   </section>
   <app-footer-navigation></app-footer-navigation>
   

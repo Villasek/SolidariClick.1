@@ -1,0 +1,35 @@
+
+.profile{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    
+}
+
+.user-info{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  box-sizing: border-box;
+
+}
+
+.botones{
+    margin: auto;
+    padding: 25px;
+    display:  block;
+    cursor: pointer;
+}
+
+button{
+    background-color:rgb(187, 187, 243);
+
+}
+
+button:hover{
+    background-color: orangered;
+}
