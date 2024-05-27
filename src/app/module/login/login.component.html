@@ -1,24 +1,20 @@
-<section class="d-flex align-item-center justify-content-center">
-    <form [formGroup]="formLogin" >
-        <div class="row mt-4 text-center" >
-            <div class="col-12">
-                <img src="{{logo}}" alt="logo" class="logo">
-            </div>
-            <h1>INGRESAR</h1>
-            <div class="col-12">
-                <input type="text" pInputText formControlName="username" autocomplete="off" placeholder="ingrese su correo" >
-            </div>
-            <div class="col-12 mt-2">
-                <input type="password" pPassword  [feedback]="false" formControlName="password" placeholder="contraseña">
-            </div>
-            <div class="col-12 mt-2" >
-                <p-button label="Ingresar" [link]="true"></p-button>
-                <a href=""></a>
-            </div>
-            <br><br>
-            <br>
-            <a href="">Olvide mi contraseña</a>
-            <a href="/src/app/module/registro/registro.component.html">Registrarme</a>
-        </div>
-    </form>
+<section class="background d-flex align-items-center justify-content-center vh-100">
+  <form [formGroup]="formLogin" class="form-container">
+    <div class="row mt-4 text-center">
+      <h1>INGRESAR</h1>
+      <div class="col-12">
+        <input type="text" pInputText formControlName="username" autocomplete="off" placeholder="Ingrese su correo" class="form-control">
+      </div>
+      <div class="col-12 mt-2">
+        <p-password [feedback]="false" formControlName="password" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" placeholder="Contraseña"></p-password>
+      </div>
+      <div class="col-12 mt-2">
+        <p-button label="Ingresar"  (onClick)="submit()"></p-button>
+      </div>
+      <br><br>
+      <br>
+      <a href="">Olvidé mi contraseña</a>
+      <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+    </div>
+  </form>
 </section>

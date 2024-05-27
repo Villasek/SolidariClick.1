@@ -3,11 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ActividadComponent } from './module/actividad/actividad.component';
 import { EditProfileComponent } from './module/edit-profile/EditProfileComponent';
 import { LoginComponent } from './module/login/login.component';
+import { RegistroComponent } from './module/registro/registro.component';
 
 const routes: Routes = [
   { path: 'home', component:  ActividadComponent },
-  { path: 'about', component: EditProfileComponent },
-  { path: 'contact', component: LoginComponent },
+  { path: 'edit', component: EditProfileComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistroComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }  // Redirigir a login por defecto
 ];
 
 @NgModule({

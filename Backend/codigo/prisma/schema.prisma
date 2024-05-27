@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserOpportunityStatus {
+  accepted
+  rejected
+  pending
+}
+
+enum UserRoles {
+  usuario
+  empresa
+  administrador
+}
+
+model User {
+  // Información básica del usuario
+  id            String               @id @default(uuid())
+  rut           String               @unique
+  name          String
+  email         String               @unique
+  address       String?
+  password      String
+  roles         UserRoles            @default(usuario)
+  isCompany     Boolean
+  isActive      Boolean              @default(true)
+  createdAt     DateTime             @default(now())
+  // Relaciones
+  activities    Opportunity[]
+  opportunities OpportunityMembers[]
+  comments      Comment[]
+}
+
+model Opportunity {
+  // Información básica de la oportunidad
+  id          String               @id @default(uuid())
+  name        String
+  description String
+  image       String
+  date        String
+  location    String
+  isActive    Boolean              @default(true)
+  isFinished  Boolean              @default(false)
+  createdAt   DateTime             @default(now())
+  // Relación con el creador de la actividad
+  User        User?                @relation(fields: [userId], references: [id])
+  userId      String?
+  members     OpportunityMembers[]
+  comments    Comment[]
+}
+
+model OpportunityMembers {
+  id            String                @id @default(uuid())
+  // Usuario relacionado a la oportunidad
+  userId        String
+  User          User?                 @relation(fields: [userId], references: [id])
+  userStatus    UserOpportunityStatus @default(pending)
+  description   String
+  // Oportunidad relacionada
+  opportunityId String
+  Opportunity   Opportunity?          @relation(fields: [opportunityId], references: [id])
+}
+
+model Comment {
+  id      String @id @default(uuid())
+  comment String
+
+  createdAt DateTime @default(now())
+
+  Opportunity   Opportunity @relation(fields: [opportunityId], references: [id])
+  opportunityId String
+  User          User        @relation(fields: [userId], references: [id])
+  userId        String
+}
