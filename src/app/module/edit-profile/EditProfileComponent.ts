@@ -10,6 +10,7 @@ import { ProfileService } from '../../services/profile.service';
 export class EditProfileComponent implements OnInit {
   profileForm: FormGroup;
   imageUrl: string | ArrayBuffer | null = null;
+  userData: any = {}; // Define una propiedad para almacenar los datos del usuario
 
   constructor(private fb: FormBuilder, private profileService: ProfileService) {
     this.profileForm = this.fb.group({

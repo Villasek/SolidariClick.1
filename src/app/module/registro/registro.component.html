@@ -15,9 +15,9 @@
           <input type="password" pInputText formControlName="password" autocomplete="off" placeholder="Ingrese su contraseña" class="form-control">
         </div>
         <div class="col-12 mt-2">
-          <button type="button" (click)="toggleAlien()" class="btn btn-primary">¿Eres una empresa?</button>
+          <button type="button" (click)="botonEmpresa()" class="btn btn-primary">¿Eres una Municipalidad?</button>
         </div>
-        <div class="col-12 mt-2" *ngIf="esAlien">
+        <div class="col-12 mt-2" *ngIf="esEmpresa">
           <input type="text" pInputText formControlName="direccion" autocomplete="off" placeholder="Ingrese su dirección" class="form-control">
         </div>
         <div class="col-12 mt-4">

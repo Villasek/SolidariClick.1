@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class RegistroComponent implements OnInit {
   FormRegister: FormGroup;
   logo = properties.logo;
-  esAlien: boolean = false;
+  esEmpresa: boolean = false;
 
   constructor(private fb: FormBuilder, private readonly router: Router) {
     this.FormRegister = this.fb.group({
@@ -27,9 +27,9 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleAlien() {
-    this.esAlien = !this.esAlien;
-    if (this.esAlien) {
+  botonEmpresa() {
+    this.esEmpresa = !this.esEmpresa;
+    if (this.esEmpresa) {
       this.FormRegister.get('direccion')?.setValidators([]);
     } else {
       this.FormRegister.get('direccion')?.clearValidators();

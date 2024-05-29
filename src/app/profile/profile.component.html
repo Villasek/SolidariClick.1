@@ -5,7 +5,7 @@
     <div class="user-info">
       <p><strong>Nombre:</strong> {{ userData.name }}</p>
       <p><strong>Email:</strong> {{ userData.email }}</p>
-      <p><strong>Rol:</strong> {{ userData.roles }}</p>
+      <p><strong>Rol:</strong> {{ displayRole }}</p> <!-- Utiliza la propiedad calculada -->
       <p><strong>RUT:</strong> {{ userData.rut }}</p>
       <p><strong>Dirección:</strong> {{ userData.address }}</p>
       
@@ -17,8 +17,11 @@
      <button *ngIf="userData.roles === 'empresa'" routerLink="/create">Crear oportunidad</button>
      <br>
      <br>
-     <button *ngIf="userData.roles === 'empresa'">Solicitudes</button>
+     <button *ngIf="userData.roles === 'empresa'" routerLink="/requests">Solicitudes</button>
+     <br>
+     <br>
+     <button routerLink="/edit">Editar Perfil</button>
      </div>
-  </section>
-  <app-footer-navigation></app-footer-navigation>
+</section>
+<app-footer-navigation></app-footer-navigation>
   

@@ -1,1 +1,11 @@
-<p>detalles works!</p>
+<section>
+  <div *ngIf="activityDetails">
+    <h1>{{ activityDetails.name }}</h1>
+    <img [src]="'http://127.0.0.1:3000/imagenes/' + activityDetails.image" alt="{{ activityDetails.name }}">
+    <p>{{ activityDetails.description }}</p>
+    <p>Fecha: {{ activityDetails.date }}</p>
+    <p>Ubicación: {{ activityDetails.location }}</p>
+    <button class="boton-inscripcion" [routerLink]="['/*']">Inscribirme</button>
+  </div>
+</section>
+<app-footer-navigation></app-footer-navigation>

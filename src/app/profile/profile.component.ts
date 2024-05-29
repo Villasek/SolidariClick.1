@@ -27,4 +27,14 @@ export class ProfileComponent implements OnInit {
       console.log({ err });
     }
   }
+
+  get displayRole(): string {
+    if (this.userData.roles === 'empresa') {
+      return 'Municipalidad';
+    } else if (this.userData.roles === 'usuario') {
+      return 'Voluntario';
+    } else {
+      return this.userData.roles;
+    }
+  }
 }

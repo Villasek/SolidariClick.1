@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterNavigationComponent } from './module/footer-navigation/footer-navigation.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ActivityCreateComponent } from './module/activity-create/activity-create.component';
+import { RequestsComponent } from './module/requests/requests.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ActivityCreateComponent } from './module/activity-create/activity-creat
     EditProfileComponent,
     FooterNavigationComponent,
     ProfileComponent,
-    ActivityCreateComponent
+    ActivityCreateComponent,
+    RequestsComponent
   ],
   imports: [
     BrowserModule,
