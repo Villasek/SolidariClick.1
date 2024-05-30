@@ -3,10 +3,10 @@
         <div class="row mt-4 text-center">
             <h1>CREAR ACTIVIDAD</h1>
             <div class="col-12 mt-2">
-                <input type="text" formControlName="name" autocomplete="off" placeholder="Ingrese el nombre" class="form-control">
+                <input type="text" formControlName="name" autocomplete="off" placeholder="Ingrese el nombre de la actividad" class="form-control">
             </div>
             <div class="col-12 mt-2">
-                <textarea formControlName="description" autocomplete="off" placeholder="Ingrese la descripción" class="form-control"></textarea>
+                <textarea formControlName="description" autocomplete="off" placeholder="Ingrese la descripción de la actividad" class="form-control"></textarea>
             </div>
             <div class="col-12 mt-2">
                 <input type="file" (change)="onFileChange($event)" class="form-control">
@@ -15,7 +15,7 @@
                 <input type="date" formControlName="date" autocomplete="off" class="form-control">
             </div>
             <div class="col-12 mt-2">
-                <input type="text" formControlName="location" autocomplete="off" placeholder="Ingrese la ubicación" class="form-control">
+                <input type="text" formControlName="location" autocomplete="off" placeholder="Ingrese la ubicación de la actividad" class="form-control">
             </div>
             <div class="col-12 mt-4">
                 <button type="submit" class="btn btn-success">Crear Actividad</button>

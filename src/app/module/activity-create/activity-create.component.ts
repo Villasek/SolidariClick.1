@@ -50,7 +50,7 @@ export class ActivityCreateComponent implements OnInit {
       const response = await axios.post('http://127.0.0.1:3000/oportunidades', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer ${token}`  // Incluir el token en los encabezados
+          'Authorization': `Bearer ${JSON.parse(token)}`  // Incluir el token en los encabezados
         }
       });
 
@@ -59,5 +59,5 @@ export class ActivityCreateComponent implements OnInit {
     } catch (error) {
       console.error('Error creating activity', error);
     }
-}
+  }
 }

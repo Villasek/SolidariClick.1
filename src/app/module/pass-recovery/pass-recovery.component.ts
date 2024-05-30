@@ -6,28 +6,26 @@ import Cookies from 'js-cookie';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-pass-recovery',
+  templateUrl: './pass-recovery.component.html',
+  styleUrl: './pass-recovery.component.css'
 })
-export class LoginComponent {
+export class PassRecoveryComponent {
   logo = properties.logo;
   formLogin: FormGroup;
 
   constructor(private fb: FormBuilder, private readonly router: Router) {
     this.formLogin = this.fb.group({
-      email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
-
-
   async submit(){
     
     try {
       console.log({ submit: true})
       const user = await axios.post('http://127.0.0.1:3000/usuarios/iniciar_sesion', {
-        email: this.formLogin.get('email')?.value,
+        email: this.formLogin.get('username')?.value,
         password: this.formLogin.get('password')?.value,
     })
 

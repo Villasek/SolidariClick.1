@@ -17,7 +17,8 @@ import { FooterNavigationComponent } from './module/footer-navigation/footer-nav
 import { ProfileComponent } from './profile/profile.component';
 import { ActivityCreateComponent } from './module/activity-create/activity-create.component';
 import { RequestsComponent } from './module/requests/requests.component';
-
+import { PassRecoveryComponent } from './module/pass-recovery/pass-recovery.component';
+import { ApplicationFormComponent } from './module/application-form/application-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { RequestsComponent } from './module/requests/requests.component';
     FooterNavigationComponent,
     ProfileComponent,
     ActivityCreateComponent,
-    RequestsComponent
+    RequestsComponent,
+    PassRecoveryComponent,
+    ApplicationFormComponent
   ],
   imports: [
     BrowserModule,

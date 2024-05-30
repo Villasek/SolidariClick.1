@@ -10,6 +10,7 @@ import axios from 'axios';
 export class DetallesComponent implements OnInit {
   activityId: string | null = null;
   activityDetails: any = null;
+  userData: any = null;
 
   constructor(private route: ActivatedRoute) {}
 

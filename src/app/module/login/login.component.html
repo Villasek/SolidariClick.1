@@ -3,7 +3,7 @@
     <div class="row mt-4 text-center">
       <h1>INGRESAR</h1>
       <div class="col-12">
-        <input type="text" pInputText formControlName="username" autocomplete="off" placeholder="Ingrese su correo" class="form-control">
+        <input type="text" pInputText formControlName="email" autocomplete="off" placeholder="Ingrese su correo" class="form-control">
       </div>
       <div class="col-12 mt-2">
         <p-password [feedback]="false" formControlName="password" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" placeholder="Contraseña"></p-password>
@@ -13,7 +13,7 @@
       </div>
       <br><br>
       <br>
-      <a href="">Olvidé mi contraseña</a>
+      <a routerLink="/recovery">Olvidé mi contraseña</a>
       <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
     </div>
   </form>
