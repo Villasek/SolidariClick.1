@@ -1,4 +1,26 @@
-<form action="">
-    <p>Aqui tienen que ir los datos para crear la actividad</p>
-</form>
+<section class="background d-flex align-items-center justify-content-center vh-100">
+    <form [formGroup]="formCreateActivity" class="form-container" (ngSubmit)="submit()">
+        <div class="row mt-4 text-center">
+            <h1>CREAR ACTIVIDAD</h1>
+            <div class="col-12 mt-2">
+                <input type="text" formControlName="name" autocomplete="off" placeholder="Ingrese el nombre" class="form-control">
+            </div>
+            <div class="col-12 mt-2">
+                <textarea formControlName="description" autocomplete="off" placeholder="Ingrese la descripción" class="form-control"></textarea>
+            </div>
+            <div class="col-12 mt-2">
+                <input type="file" (change)="onFileChange($event)" class="form-control">
+            </div>
+            <div class="col-12 mt-2">
+                <input type="date" formControlName="date" autocomplete="off" class="form-control">
+            </div>
+            <div class="col-12 mt-2">
+                <input type="text" formControlName="location" autocomplete="off" placeholder="Ingrese la ubicación" class="form-control">
+            </div>
+            <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-success">Crear Actividad</button>
+            </div>
+        </div>
+    </form>
+</section>
 <app-footer-navigation></app-footer-navigation>

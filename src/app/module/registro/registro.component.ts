@@ -49,7 +49,7 @@ export class RegistroComponent implements OnInit {
 
     Cookies.set('session', JSON.stringify(user.data.token))
 
-    // Obtener token de las esion
+    // Obtener token de las sesion
     console.log({
       userSession: JSON.parse(Cookies.get('session') ?? '{}')
     })
