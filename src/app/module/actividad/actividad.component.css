@@ -1,13 +1,20 @@
+
 .principal{
     margin: 20px;
     text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
 }
+
 .actividad {
     margin-bottom: 20px;
-    border: 1px solid #070707;
+    border: 0.5px solid #070707;
     padding: 10px;
+    margin: 20px;
+    width: 400px ;
     overflow: hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: aliceblue;
   }
   .actividad img {
     float: left;
@@ -15,9 +22,7 @@
     width: 100px;
     height: auto;
   }
-  .actividad .descripcion {
-    float: left;
-  }
+
   .boton-inscripcion {
     float: right;
     padding: 5px 10px;
@@ -25,16 +30,23 @@
     color: #ffffff;
     border: none;
     cursor: pointer;
+    
   }
+
+  .boton-inscripcion:hover{
+    background-color: blue;
+  }
+
   .actividades {
     display: flex;
     flex-wrap: wrap;
+    background-image:url(https://enlinea.santotomas.cl/web/wp-content/uploads/sites/2/2017/08/voluntario1-e1503493015129-744x465.jpg) ;
 }
 
 .actividad {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    
 }
 
 .actividad img {
