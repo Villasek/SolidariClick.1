@@ -1,0 +1,35 @@
+
+h1{
+    text-align: left;
+    margin: 30px;
+    text-decoration:underline;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+
+}
+img{
+    display: block;
+    width: 200px;
+    margin: 30px;
+    border: 1px solid #000;
+
+}
+
+.descripcion{
+    margin: 30px;
+    text-align:center;
+    border: 1px solid #000;
+    width: 300px;
+
+}
+button{
+
+    margin: 20px;
+    width: auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    background-color: rgb(19, 31, 116);
+}
+button:hover{
+    background-color: red;
+}
