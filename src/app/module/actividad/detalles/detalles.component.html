@@ -1,15 +1,23 @@
 <section>
   <div *ngIf="activityDetails">
+    <div class="contenedor">
     <h1>{{ activityDetails.name }}</h1>
     <img [src]="'http://127.0.0.1:3000/imagenes/' + activityDetails.image" alt="{{ activityDetails.name }}">
     <div class="descripcion">
-    <p>{{ activityDetails.description }}</p>
-    <p>Fecha: {{ activityDetails.date }}</p>
-    <p>Ubicación: {{ activityDetails.location }}</p>
+      <p>{{ activityDetails.description }}</p>
+      <p>Fecha: {{ activityDetails.date }}</p>
+      <p>Ubicación: {{ activityDetails.location }}</p>
     </div>
-    <button class="boton-inscripcion" [routerLink]="['/application']">Inscribirme</button>
-    </div>
-  <br><br>
- <br>
+    <div class="text">
+      <label for="request"></label>
+      <input type="text" id="texto" name="texto" placeholder="Cuentanos porque quieres ser participe de esta actividad"><br>
+      </div>
+    <button class="boton-inscripcion" (click)="inscribirse()">Inscribirme</button>
+  </div>
+  </div>
+  <br>
 </section>
+  <div>
+    
+  </div>
 <app-footer-navigation></app-footer-navigation>

@@ -55,9 +55,17 @@ export class ActivityCreateComponent implements OnInit {
       });
 
       console.log('Activity created successfully', response.data);
-      this.router.navigate(['/activities']);
+
+      // Mostrar mensaje emergente de éxito
+      alert('La actividad se ha creado exitosamente');
+
+      // Redirigir a la página de inicio
+      this.router.navigate(['/home']);
     } catch (error) {
       console.error('Error creating activity', error);
+
+      // Mostrar mensaje emergente de error
+      alert('Hubo un error al crear la actividad. Por favor, inténtelo de nuevo.');
     }
   }
 }

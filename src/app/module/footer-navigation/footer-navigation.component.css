@@ -24,5 +24,5 @@
     color: #000000;
     text-decoration: none;
     border-right: 1px solid #555; /* Añade un borde derecho entre los elementos */
-    padding-right: 15px; /* Añade un espacio entre el borde y el texto */
+    padding-right: 10px; /* Añade un espacio entre el borde y el texto */
   }

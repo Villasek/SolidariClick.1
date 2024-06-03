@@ -2,6 +2,7 @@
   <div class="principal">
     <h1>Lista de actividades</h1>
   </div>
+  <div class="fondo">
   <div class="actividades">
     <div *ngFor="let actividad of activityData" class="actividad">
       <img [src]="'http://127.0.0.1:3000/imagenes/' + actividad.image" alt="{{ actividad.name }}">
@@ -13,5 +14,6 @@
       </div>
     </div>
   </div>
+</div>
 </section>
 <app-footer-navigation></app-footer-navigation>

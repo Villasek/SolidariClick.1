@@ -1,3 +1,7 @@
+/*section{
+
+}*/
+
 
 .principal{
     margin: 20px;
@@ -40,7 +44,7 @@
   .actividades {
     display: flex;
     flex-wrap: wrap;
-    background-image:url(https://enlinea.santotomas.cl/web/wp-content/uploads/sites/2/2017/08/voluntario1-e1503493015129-744x465.jpg) ;
+
 }
 
 .actividad {
@@ -57,4 +61,11 @@
 
 .descripcion {
     flex: 1 1 auto;
+}
+
+.fondo{
+  background-image: url(https://enlinea.santotomas.cl/web/wp-content/uploads/sites/2/2017/08/voluntario1-e1503493015129-744x465.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
