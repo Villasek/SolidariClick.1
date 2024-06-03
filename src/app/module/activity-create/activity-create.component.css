@@ -1,0 +1,22 @@
+section{
+    background-image: url(https://educowebmedia.blob.core.windows.net/educowebmedia/educospain/media/images/blog/manos-voluntariado.jpg);
+    background-repeat: no-repeat;
+    background-size: 1920px 1080px;
+    background-position: center;
+    
+    
+  }
+h1{
+    text-align: center;
+    background-color: rgb(255, 0, 0);
+    color:white
+
+}
+
+button{
+    background-color: blue;
+}
+button:hover{
+    background-color: orangered;
+}
+

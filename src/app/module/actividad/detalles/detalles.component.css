@@ -1,30 +1,42 @@
 
+section{
+    background-image:url(https://www.telemundo.com/sites/nbcutelemundo/files/images/article/cover/2016/11/25/jovenes-voluntarios-recogiendo-basura.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+
+
 h1{
     text-align: left;
-    margin: 30px;
+    margin: 40px;
     text-decoration:underline;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
-
+    background-color: rgba(255, 255, 255, 0);
+    text-transform: capitalize;
+    color: #000;
 }
 img{
+    align-items: center;
     display: block;
-    width: 200px;
-    margin: 30px;
+    width: 400px;
+    margin: 50px;
     border: 1px solid #000;
+    
 
 }
 
 .descripcion{
-    margin: 30px;
+    margin: 50px;
     text-align:center;
     border: 1px solid #000;
-    width: 300px;
+    width: 400px;
+    background-color: lightyellow;
 
 }
 button{
-
-    margin: 20px;
+    margin: 14px;
+    margin-left: 200px;
     width: auto;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
