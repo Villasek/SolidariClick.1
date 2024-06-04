@@ -1,16 +1,16 @@
 <section>
     <h2>Mis Actividades Inscritas</h2>
     <div *ngIf="activitiesData.length > 0; else noActivities">
-        <div *ngFor="let activity of activitiesData" class="activity">
-            <h3>{{ activity.name }}</h3>
-            <p>Descripción: {{ activity.description }}</p>
-            <p>Fecha: {{ activity.date }}</p>
-            <p>Ubicación: {{ activity.location }}</p>
-            <p>Estado de la postulación: {{ activity.userStatus === 'pending' ? 'Pendiente' : activity.userStatus }}</p>
-        </div>
+      <div *ngFor="let activity of activitiesData" class="activity">
+        <h3>{{ activity.Opportunity.name }}</h3> <!-- Accede a la relación Opportunity -->
+        <p>Descripción: {{ activity.Opportunity.description }}</p>
+        <p>Fecha: {{ activity.Opportunity.date }}</p> <!-- Accede a la relación Opportunity -->
+        <p>Ubicación: {{ activity.Opportunity.location }}</p> <!-- Accede a la relación Opportunity -->
+        <p>Estado de la postulación: {{ activity.userStatus === 'pending' ? 'Pendiente' : activity.userStatus }}</p>
+      </div>
     </div>
     <ng-template #noActivities>
-        <p>No tienes actividades inscritas.</p>
+      <p>No tienes actividades inscritas.</p>
     </ng-template>
-</section>
-<app-footer-navigation></app-footer-navigation>
+  </section>
+  <app-footer-navigation></app-footer-navigation>  

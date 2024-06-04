@@ -117,7 +117,9 @@ export class OportunidadesService extends PrismaClient {
   getUserOpportunities(id: string) {
     return this.opportunityMembers.findMany({
       where: { userId: id },
-      include: { Opportunity: true },
+      include: { 
+        Opportunity: true, // Asegúrate de incluir la relación con la tabla de oportunidades
+      },
     });
   }
 
