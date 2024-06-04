@@ -14,7 +14,7 @@ import { RegistroComponent } from './module/registro/registro.component';
 import { EditProfileComponent } from './module/edit-profile/EditProfileComponent';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterNavigationComponent } from './module/footer-navigation/footer-navigation.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './module/profile/profile.component';
 import { ActivityCreateComponent } from './module/activity-create/activity-create.component';
 import { RequestsComponent } from './module/requests/requests.component';
 import { PassRecoveryComponent } from './module/pass-recovery/pass-recovery.component';

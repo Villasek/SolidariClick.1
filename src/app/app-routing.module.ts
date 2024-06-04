@@ -4,7 +4,7 @@ import { ActividadComponent } from './module/actividad/actividad.component';
 import { EditProfileComponent } from './module/edit-profile/EditProfileComponent';
 import { LoginComponent } from './module/login/login.component';
 import { RegistroComponent } from './module/registro/registro.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './module/profile/profile.component';
 import { DetallesComponent } from './module/actividad/detalles/detalles.component';
 import { ActivityCreateComponent } from './module/activity-create/activity-create.component';
 import { RequestsComponent } from './module/requests/requests.component';
