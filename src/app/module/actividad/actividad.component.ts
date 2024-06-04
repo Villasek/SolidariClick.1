@@ -24,3 +24,4 @@ export class ActividadComponent implements OnInit {
     }
   }
 }
+//quiero que se puedan ver el nombre de la municipalidad que creo esta actividad

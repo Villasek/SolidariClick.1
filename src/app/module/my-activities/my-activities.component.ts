@@ -10,6 +10,7 @@ import Cookies from 'js-cookie';
 export class MyActivitiesComponent implements OnInit {
   activitiesData: any[] = [];
   userData: any = {}; // Define una propiedad para almacenar los datos del usuario
+  activityData: any = {};
 
   ngOnInit(): void {
     this.getMyActivities();
