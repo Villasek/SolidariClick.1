@@ -79,3 +79,12 @@
     color: black; /* Cambia el color del texto a negro */
   }
   
+  .is-invalid {
+    border-color: red;
+  }
+  
+  .invalid-feedback {
+    color: red;
+    font-size: 0.875em;
+  }
+  

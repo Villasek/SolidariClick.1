@@ -16,35 +16,34 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private readonly router: Router) {
     this.formLogin = this.fb.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
+  async submit() {
+    if (this.formLogin.invalid) {
+      this.formLogin.markAllAsTouched(); // Marcar todos los campos como tocados para mostrar mensajes de error
+      return;
+    }
 
-  async submit(){
-    
     try {
-      console.log({ submit: true})
+      console.log({ submit: true });
       const user = await axios.post('http://127.0.0.1:3000/usuarios/iniciar_sesion', {
         email: this.formLogin.get('email')?.value,
         password: this.formLogin.get('password')?.value,
-    })
+      });
 
-    Cookies.set('session', JSON.stringify(user.data.token))
+      Cookies.set('session', JSON.stringify(user.data.token));
 
-    // Obtener token de las sesion
-    console.log({
-      userSession: JSON.parse(Cookies.get('session') ?? '{}')
-    })
+      // Obtener token de la sesión
+      console.log({
+        userSession: JSON.parse(Cookies.get('session') ?? '{}')
+      });
 
-    this.router.navigate(['/home'])
-
-    
+      this.router.navigate(['/home']);
     } catch (error) {
-      console.log('Mi loco, fallo al iniciar sesión')
+      console.log('Error al iniciar sesión');
     }
-
-
   }
 }

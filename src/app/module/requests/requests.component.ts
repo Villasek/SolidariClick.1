@@ -21,7 +21,7 @@ export class RequestsComponent implements OnInit {
         throw new Error('No token found');
       }
 
-      const response = await axios.get('http://127.0.0.1:3000/oportunidades/miembros/:oportunidad', {
+      const response = await axios.get('http://127.0.0.1:3000/oportunidades/mis-oportunidades-inscritas', {
         headers: {
           Authorization: `Bearer ${JSON.parse(token)}`
         }

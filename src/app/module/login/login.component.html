@@ -1,15 +1,36 @@
 <section class="background d-flex align-items-center justify-content-center vh-100">
-  <form [formGroup]="formLogin" class="form-container">
+  <form [formGroup]="formLogin" class="form-container" (ngSubmit)="submit()">
     <div class="row mt-4 text-center">
       <h1>INGRESAR</h1>
       <div class="col-12">
-        <input type="text" pInputText formControlName="email" autocomplete="off" placeholder="Ingrese su correo" class="form-control">
+        <input 
+          type="text" 
+          pInputText 
+          formControlName="email" 
+          autocomplete="off" 
+          placeholder="Ingrese su correo" 
+          class="form-control"
+          [ngClass]="{'is-invalid': formLogin.get('email')?.invalid && formLogin.get('email')?.touched}">
+        <div *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched" class="invalid-feedback">
+          <div *ngIf="formLogin.get('email')?.errors?.['required']">El correo es requerido.</div>
+          <div *ngIf="formLogin.get('email')?.errors?.['email']">El correo no es válido.</div>
+        </div>
       </div>
       <div class="col-12 mt-2">
-        <p-password [feedback]="false" formControlName="password" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" placeholder="Contraseña"></p-password>
+        <p-password 
+          [feedback]="false" 
+          formControlName="password" 
+          [style]="{'width':'100%'}" 
+          [inputStyle]="{'width':'100%'}" 
+          placeholder="Contraseña"
+          [ngClass]="{'is-invalid': formLogin.get('password')?.invalid && formLogin.get('password')?.touched}">
+        </p-password>
+        <div *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched" class="invalid-feedback">
+          La contraseña es requerida.
+        </div>
       </div>
       <div class="col-12 mt-2">
-        <p-button label="Ingresar"  (onClick)="submit()"></p-button>
+        <button type="submit" pButton label="Ingresar"></button>
       </div>
       <br><br>
       <br>

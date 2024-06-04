@@ -1,20 +1,41 @@
 <section class="background d-flex align-items-center justify-content-center vh-100">
-    <form [formGroup]="formLogin" class="form-container">
-      <div class="row mt-4 text-center">
-        <h1>RECUPERAR CONTRASEÑA</h1>
-        <div class="col-12">
-          <input type="text" pInputText formControlName="username" autocomplete="off" placeholder="Ingrese su nombre de usuario" class="form-control">
+  <form [formGroup]="formLogin" class="form-container" (ngSubmit)="submit()">
+    <div class="row mt-4 text-center">
+      <h1>RECUPERAR CONTRASEÑA</h1>
+      <div class="col-12">
+        <input 
+          type="text" 
+          pInputText 
+          formControlName="username" 
+          autocomplete="off" 
+          placeholder="Ingrese su nombre de usuario" 
+          class="form-control"
+          [ngClass]="{'is-invalid': formLogin.get('username')?.invalid && formLogin.get('username')?.touched}">
+        <div *ngIf="formLogin.get('username')?.invalid && formLogin.get('username')?.touched" class="invalid-feedback">
+          El nombre de usuario es requerido.
         </div>
-        <div class="col-12 mt-2">
-            <input type="email" pInputText formControlName="email" autocomplete="off" placeholder="Ingrese su correo" class="form-control">
-          </div>
-          <div class="col-12 mt-2">
-          <p-button label="Ingresar"  (onClick)="submit()"></p-button>
-        </div>
-        <br><br>
-        <br>
-        <a routerLink="/login">Iniciar Sesión </a>
-        <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
       </div>
-    </form>
-  </section>
+      <div class="col-12 mt-2">
+        <input 
+          type="email" 
+          pInputText 
+          formControlName="email" 
+          autocomplete="off" 
+          placeholder="Ingrese su correo" 
+          class="form-control"
+          [ngClass]="{'is-invalid': formLogin.get('email')?.invalid && formLogin.get('email')?.touched}">
+        <div *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched" class="invalid-feedback">
+          <div *ngIf="formLogin.get('email')?.errors?.['required']">El correo es requerido.</div>
+          <div *ngIf="formLogin.get('email')?.errors?.['email']">El correo no es válido.</div>
+        </div>
+      </div>
+      <div class="col-12 mt-2">
+        <button type="submit" pButton label="Ingresar"></button>
+      </div>
+      <br><br>
+      <br>
+      <a routerLink="/login">Iniciar Sesión </a>
+      <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+    </div>
+  </form>
+</section>

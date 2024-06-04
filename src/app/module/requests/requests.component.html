@@ -1,34 +1,34 @@
 <section>
-    <h2>Solicitudes de Usuarios</h2>
-    <div *ngIf="requestsData.length > 0; else noRequests">
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre del Usuario</th>
-            <th>Descripción</th>
-            <th>Estado de la Solicitud</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let request of requestsData">
-            <td>{{ request.User.name }}</td>
-            <td>{{ request.description }}</td>
-            <td>
-              <label>
-                <input type="checkbox" [checked]="request.userStatus === 'accepted'" (change)="handleCheckboxChange($event, request.opportunityId, request.userId)" />
-                {{ request.userStatus === 'accepted' ? 'Aprobado' : 'Pendiente' }}
-              </label>
-            </td>
-            <td>
-              <button (click)="denyRequest(request.opportunityId, request.userId)" [disabled]="request.userStatus === 'rejected'">Denegar</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <ng-template #noRequests>
-      <p>No hay solicitudes de usuarios.</p>
-    </ng-template>
-  </section>
-  <app-footer-navigation></app-footer-navigation>
+  <h2>Solicitudes de Usuarios</h2>
+  <div *ngIf="requestsData.length > 0; else noRequests">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre de la Oportunidad</th>
+          <th>Descripción de la Solicitud</th>
+          <th>Estado de la Solicitud</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of requestsData">
+          <td>{{ request.Opportunity.name }}</td>
+          <td>{{ request.description }}</td>
+          <td>
+            <label>
+              <input type="checkbox" [checked]="request.userStatus === 'accepted'" (change)="handleCheckboxChange($event, request.opportunityId, request.userId)" />
+              {{ request.userStatus === 'accepted' ? 'Aprobado' : 'Pendiente' }}
+            </label>
+          </td>
+          <td>
+            <button (click)="denyRequest(request.opportunityId, request.userId)" [disabled]="request.userStatus === 'rejected'">Denegar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noRequests>
+    <p>No hay solicitudes de usuarios.</p>
+  </ng-template>
+</section>
+<app-footer-navigation></app-footer-navigation>
