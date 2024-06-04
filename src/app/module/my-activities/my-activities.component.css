@@ -1,0 +1,33 @@
+section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+  }
+  
+  .activity {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activity h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .activity p {
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilos para cuando no hay actividades inscritas */
+  p.no-activities {
+    color: #666;
+    font-style: italic;
+    text-align: center;
+  }
+  

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './requests.component.css'
 })
 export class RequestsComponent {
+  userData: any = {}; // Define una propiedad para almacenar los datos del usuario
 
 }
