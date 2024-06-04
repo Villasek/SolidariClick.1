@@ -50,6 +50,12 @@ export class OportunidadesController {
     return this.oportunidadesService.getUserOpportunities(usuario.id);
   }
 
+  @Get('/solicitudes-empresa')
+  @Auth('empresa')
+  findRequestsForCompany(@User() usuario: TUser) {
+    return this.oportunidadesService.findRequestsForCompany(usuario.id);
+  }
+
   @Get()
   findAll() {
     return this.oportunidadesService.findAll();

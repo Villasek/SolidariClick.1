@@ -38,11 +38,34 @@ export class OportunidadesService extends PrismaClient {
   }
 
   findAll() {
-    return this.opportunity.findMany({});
+    return this.opportunity.findMany({
+      include: {
+        User: true, // Incluye el usuario que creó la oportunidad
+      },
+    });
   }
 
   findOne(id: string) {
-    return this.opportunity.findFirst({ where: { id, isActive: true } });
+    return this.opportunity.findFirst({
+      where: { id, isActive: true },
+      include: {
+        User: true, // Incluye el usuario que creó la oportunidad
+      },
+    });
+  }
+
+  findRequestsForCompany(userId: string) {
+    return this.opportunityMembers.findMany({
+      where: {
+        Opportunity: {
+          userId: userId,
+        },
+      },
+      include: {
+        Opportunity: true,
+        User: true,
+      },
+    });
   }
 
   async postular(id: string, usuario: User, postularDto: PostularDto) {

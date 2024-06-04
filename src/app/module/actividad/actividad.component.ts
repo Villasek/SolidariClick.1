@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 @Component({
   selector: 'app-actividad',
   templateUrl: './actividad.component.html',
-  styleUrl: './actividad.component.css'
+  styleUrls: ['./actividad.component.css']
 })
 export class ActividadComponent implements OnInit {
   activityData: any[] = []; // Define una propiedad para almacenar los datos de las actividades
@@ -24,4 +23,3 @@ export class ActividadComponent implements OnInit {
     }
   }
 }
-//quiero que se puedan ver el nombre de la municipalidad que creo esta actividad

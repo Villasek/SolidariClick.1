@@ -6,6 +6,7 @@
         <tr>
           <th>Nombre de la Oportunidad</th>
           <th>Descripción de la Solicitud</th>
+          <th>Nombre de Usuario</th>
           <th>Estado de la Solicitud</th>
           <th>Acciones</th>
         </tr>
@@ -14,14 +15,15 @@
         <tr *ngFor="let request of requestsData">
           <td>{{ request.Opportunity.name }}</td>
           <td>{{ request.description }}</td>
+          <td>{{ request.User.name }}</td>
+          <td>{{ getUserStatus(request.userStatus) }}</td>
           <td>
-            <label>
-              <input type="checkbox" [checked]="request.userStatus === 'accepted'" (change)="handleCheckboxChange($event, request.opportunityId, request.userId)" />
-              {{ request.userStatus === 'accepted' ? 'Aprobado' : 'Pendiente' }}
-            </label>
-          </td>
-          <td>
-            <button (click)="denyRequest(request.opportunityId, request.userId)" [disabled]="request.userStatus === 'rejected'">Denegar</button>
+            <button (click)="approveRequest(request.opportunityId, request.userId)" 
+                    [disabled]="request.userStatus === 'accepted'"
+                    class="btn-accept">Aceptar</button>
+            <button (click)="denyRequest(request.opportunityId, request.userId)" 
+                    [disabled]="request.userStatus === 'rejected'"
+                    class="btn-deny">Denegar</button>
           </td>
         </tr>
       </tbody>

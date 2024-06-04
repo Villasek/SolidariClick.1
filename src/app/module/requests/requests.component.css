@@ -32,13 +32,20 @@ button {
   cursor: pointer;
   border-radius: 4px;
   margin-right: 5px;
-  background-color: #007bff;
   color: white;
 }
 
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.btn-accept {
+  background-color: blue;
+}
+
+.btn-deny {
+  background-color: red;
 }
 
 label {

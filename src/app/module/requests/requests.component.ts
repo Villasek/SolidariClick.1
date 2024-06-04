@@ -21,7 +21,7 @@ export class RequestsComponent implements OnInit {
         throw new Error('No token found');
       }
 
-      const response = await axios.get('http://127.0.0.1:3000/oportunidades/mis-oportunidades-inscritas', {
+      const response = await axios.get('http://127.0.0.1:3000/oportunidades/solicitudes-empresa', {
         headers: {
           Authorization: `Bearer ${JSON.parse(token)}`
         }
@@ -30,6 +30,17 @@ export class RequestsComponent implements OnInit {
       this.requestsData = response.data;
     } catch (error) {
       console.error('Error fetching requests:', error);
+    }
+  }
+
+  getUserStatus(status: string): string {
+    switch (status) {
+      case 'accepted':
+        return 'Aceptado';
+      case 'rejected':
+        return 'Denegado';
+      default:
+        return 'Pendiente';
     }
   }
 
@@ -48,7 +59,12 @@ export class RequestsComponent implements OnInit {
         }
       });
 
-      this.getRequests(); // Refresh the requests data
+      this.requestsData = this.requestsData.map(request => {
+        if (request.opportunityId === opportunityId && request.userId === userId) {
+          request.userStatus = isApproved ? 'accepted' : 'rejected';
+        }
+        return request;
+      });
     } catch (error) {
       console.error('Error updating request status:', error);
     }
@@ -68,11 +84,5 @@ export class RequestsComponent implements OnInit {
     } catch (error) {
       console.error('Error approving request:', error);
     }
-  }
-
-  handleCheckboxChange(event: Event, opportunityId: string, userId: string) {
-    const target = event.target as HTMLInputElement;
-    const isApproved = target.checked;
-    this.updateRequestStatus(opportunityId, userId, isApproved);
   }
 }
