@@ -69,3 +69,12 @@
   background-size: cover;
   
 }
+.principal {
+  margin: 20px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.principal div {
+  margin: 10px 0;
+}

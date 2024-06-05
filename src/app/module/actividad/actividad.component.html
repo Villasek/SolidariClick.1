@@ -1,16 +1,26 @@
 <section>
   <div class="principal">
     <h1>Lista de actividades</h1>
+    <div>
+      <label for="interests">Filtrar por intereses:</label>
+      <select id="interests" (change)="filterByInterest($event)">
+        <option value="all">Todos</option>
+        <option value="voluntariado">Voluntariado</option>
+        <option value="educación">Educación</option>
+        <option value="medio ambiente">Medio Ambiente</option>
+        <!-- Add more interests as needed -->
+      </select>
+    </div>
   </div>
   <div class="fondo">
     <div class="actividades">
-      <div *ngFor="let actividad of activityData" class="actividad">
+      <div *ngFor="let actividad of filteredActivityData" class="actividad">
         <img [src]="'http://127.0.0.1:3000/imagenes/' + actividad.image" alt="{{ actividad.name }}">
         <div class="descripcion">
           <h2>{{ actividad.name }}</h2>
           <p>Fecha: {{ actividad.date }}</p>
           <p>Ubicación: {{ actividad.location }}</p>
-          <p>Municipalidad: {{ actividad.User.name }}</p> <!-- Aquí se muestra la empresa -->
+          <p>Municipalidad: {{ actividad.User.name }}</p>
           <button class="boton-inscripcion" [routerLink]="['/details', actividad.id]">Inscribirme</button>
         </div>
       </div>

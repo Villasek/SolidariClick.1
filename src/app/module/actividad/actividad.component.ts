@@ -7,7 +7,8 @@ import axios from 'axios';
   styleUrls: ['./actividad.component.css']
 })
 export class ActividadComponent implements OnInit {
-  activityData: any[] = []; // Define una propiedad para almacenar los datos de las actividades
+  activityData: any[] = []; // Data from the backend
+  filteredActivityData: any[] = []; // Data to display based on filters
 
   ngOnInit(): void {
     this.obtenerOportunidades();
@@ -16,10 +17,22 @@ export class ActividadComponent implements OnInit {
   async obtenerOportunidades() {
     try {
       const { data } = await axios.get('http://127.0.0.1:3000/oportunidades');
-      this.activityData = data; // Asigna los datos de las actividades
+      this.activityData = data;
+      this.filteredActivityData = data; // Initialize filtered data
     } catch (err) {
       console.log('Error al obtener las actividades');
       console.log({ err });
+    }
+  }
+
+  filterByInterest(event: any) {
+    const selectedInterest = event.target.value;
+    if (selectedInterest === 'all') {
+      this.filteredActivityData = this.activityData;
+    } else {
+      this.filteredActivityData = this.activityData.filter(actividad =>
+        actividad.interest === selectedInterest
+      );
     }
   }
 }
