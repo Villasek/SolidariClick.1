@@ -53,6 +53,15 @@ model Opportunity {
   userId      String?
   members     OpportunityMembers[]
   comments    Comment[]
+  categoryId  Int
+  category    Category     @relation(fields: [categoryId], references: [id])
+
+}
+
+model Category {
+  id          Int          @id @default(autoincrement())
+  name        String       @unique
+  opportunities Opportunity[]
 }
 
 model OpportunityMembers {

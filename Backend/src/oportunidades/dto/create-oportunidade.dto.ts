@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 
 export class CreateOportunidadeDto {
   @IsString()
@@ -12,4 +12,7 @@ export class CreateOportunidadeDto {
 
   @IsString()
   location: string;
+
+  @IsNumber()
+  categoryId: number;
 }
