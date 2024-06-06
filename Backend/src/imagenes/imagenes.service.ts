@@ -5,7 +5,7 @@ import * as fs from 'fs';
 @Injectable()
 export class ImagenesService {
   findOne(img: string) {
-    const imagen = path.join(__dirname, `../../images/${img}`);
+    const imagen = path.join(__dirname, `../../../images/${img}`);
     if (!fs.existsSync(imagen)) {
       throw new NotFoundException(`No hay resultados para: ${img}`);
     }

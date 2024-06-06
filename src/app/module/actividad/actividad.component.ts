@@ -25,14 +25,18 @@ export class ActividadComponent implements OnInit {
     }
   }
 
-  filterByInterest(event: any) {
+  async filterByInterest(event: any) {
     const selectedInterest = event.target.value;
     if (selectedInterest === 'all') {
       this.filteredActivityData = this.activityData;
     } else {
-      this.filteredActivityData = this.activityData.filter(actividad =>
-        actividad.interest === selectedInterest
-      );
+      try {
+        const { data } = await axios.get(`http://127.0.0.1:3000/oportunidades/filtrar-categoria/${selectedInterest}`);
+        this.filteredActivityData = data;
+      } catch (err) {
+        console.log('Error al filtrar las actividades por categoría');
+        console.log({ err });
+      }
     }
   }
 }

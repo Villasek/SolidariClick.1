@@ -1,7 +1,7 @@
 <section class="background d-flex align-items-center justify-content-center vh-100">
   <form [formGroup]="formLogin" class="form-container" (ngSubmit)="submit()">
     <div class="row mt-4 text-center">
-      <h1>INGRESAR</h1>
+      <h1>Ingresar</h1>
       <div class="col-12">
         <input 
           type="text" 
@@ -30,12 +30,14 @@
         </div>
       </div>
       <div class="col-12 mt-2">
-        <button type="submit" pButton label="Ingresar"></button>
+        <button type="submit" pButton label="Ingresar" class="btn btn-primary"></button>
       </div>
-      <br><br>
-      <br>
-      <a routerLink="/recovery">Olvidé mi contraseña</a>
-      <p>¿No tienes una cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+      <div class="col-12 mt-2">
+        <a routerLink="/recovery" class="link">Olvidé mi contraseña</a>
+      </div>
+      <div class="col-12 mt-2">
+        <p>¿No tienes una cuenta? <a routerLink="/register" class="link">Regístrate aquí</a></p>
+      </div>
     </div>
   </form>
 </section>

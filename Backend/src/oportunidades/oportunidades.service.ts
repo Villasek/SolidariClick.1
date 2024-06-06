@@ -42,7 +42,7 @@ export class OportunidadesService extends PrismaClient {
       });
 
       fs.writeFileSync(
-        path.join(__dirname, `../../images/${imagen}`),
+        path.join(__dirname, `../../../images/${imagen}`),
         file.buffer,
       );
 
