@@ -13,6 +13,6 @@ export class CreateOportunidadeDto {
   @IsString()
   location: string;
 
-  @IsNumber()
-  categoryId: number;
+  @IsString()
+  categoryId: string;
 }

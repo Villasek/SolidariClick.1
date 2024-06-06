@@ -28,6 +28,7 @@ model User {
   address       String?
   password      String
   roles         UserRoles            @default(usuario)
+  interests     Int[]                @default([])
   isCompany     Boolean
   isActive      Boolean              @default(true)
   createdAt     DateTime             @default(now())
@@ -54,13 +55,12 @@ model Opportunity {
   members     OpportunityMembers[]
   comments    Comment[]
   categoryId  Int
-  category    Category     @relation(fields: [categoryId], references: [id])
-
+  category    Category             @relation(fields: [categoryId], references: [id])
 }
 
 model Category {
-  id          Int          @id @default(autoincrement())
-  name        String       @unique
+  id            Int           @id @default(autoincrement())
+  name          String        @unique
   opportunities Opportunity[]
 }
 

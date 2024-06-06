@@ -1,26 +1,32 @@
 <section class="background d-flex align-items-center justify-content-center vh-100">
     <form [formGroup]="formCreateActivity" class="form-container" (ngSubmit)="submit()">
-        <div class="title">
-            <h1>CREAR ACTIVIDAD</h1>
-            <div class="col-12 mt-2">
-                <input type="text" formControlName="name" autocomplete="off" placeholder="Ingrese el nombre de la actividad" class="form-control">
-            </div>
-            <div class="col-12 mt-2">
-                <textarea formControlName="description" autocomplete="off" placeholder="Ingrese la descripción de la actividad" class="form-control"></textarea>
-            </div>
-            <div class="col-12 mt-2">
-                <input type="file" (change)="onFileChange($event)" class="form-control">
-            </div>
-            <div class="col-12 mt-2">
-                <input type="date" formControlName="date" autocomplete="off" class="form-control">
-            </div>
-            <div class="col-12 mt-2">
-                <input type="text" formControlName="location" autocomplete="off" placeholder="Ingrese la ubicación de la actividad" class="form-control">
-            </div>
-            <div class="col-12 mt-4">
-                <button type="submit" class="btn btn-success">Crear Actividad</button>
-            </div>
+      <div class="title">
+        <h1>CREAR ACTIVIDAD</h1>
+        <div class="col-12 mt-2">
+          <input type="text" formControlName="name" autocomplete="off" placeholder="Ingrese el nombre de la actividad" class="form-control">
         </div>
+        <div class="col-12 mt-2">
+          <textarea formControlName="description" autocomplete="off" placeholder="Ingrese la descripción de la actividad" class="form-control"></textarea>
+        </div>
+        <div class="col-12 mt-2">
+          <input type="file" (change)="onFileChange($event)" class="form-control">
+        </div>
+        <div class="col-12 mt-2">
+          <input type="date" formControlName="date" autocomplete="off" class="form-control">
+        </div>
+        <div class="col-12 mt-2">
+          <input type="text" formControlName="location" autocomplete="off" placeholder="Ingrese la ubicación de la actividad" class="form-control">
+        </div>
+        <div class="col-12 mt-2">
+          <select formControlName="categoryId" class="form-control">
+            <option *ngFor="let category of categories" [ngValue]="category.id">{{ category.name }}</option>
+          </select>
+        </div>
+        <div class="col-12 mt-4">
+          <button type="submit" class="btn btn-success">Crear Actividad</button>
+        </div>
+      </div>
     </form>
-</section>
-<app-footer-navigation></app-footer-navigation>
+  </section>
+  <app-footer-navigation></app-footer-navigation>
+  

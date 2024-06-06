@@ -13,6 +13,7 @@ CREATE TABLE "User" (
     "address" TEXT,
     "password" TEXT NOT NULL,
     "roles" "UserRoles" NOT NULL DEFAULT 'usuario',
+    "interests" INTEGER[] DEFAULT ARRAY[]::INTEGER[],
     "isCompany" BOOLEAN NOT NULL,
     "isActive" BOOLEAN NOT NULL DEFAULT true,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

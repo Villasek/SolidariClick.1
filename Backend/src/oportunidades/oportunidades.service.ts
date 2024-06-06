@@ -7,40 +7,67 @@ import { CreateOportunidadeDto } from './dto/create-oportunidade.dto';
 import { PrismaClient } from '@prisma/client';
 import * as fs from 'fs';
 import * as path from 'path';
-import { uuid } from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 import { type User } from '@prisma/client';
 import { PostularDto } from './dto/postular.dto';
 import { UpdateRequestDto } from './dto/update-request.dto';
 
 @Injectable()
 export class OportunidadesService extends PrismaClient {
-  create(
+  async create(
     createOportunidadeDto: CreateOportunidadeDto,
     file: Express.Multer.File,
     usuario: User,
   ) {
     const idOportunidad = uuid();
-    const imagen = `${idOportunidad}.${file.originalname.split('.').at(-1)}`;
+    const imagen = `${idOportunidad}.${file.originalname.split('.').pop()}`;
 
-    const oportunidad = this.opportunity.create({
-      data: {
-        ...createOportunidadeDto,
-        image: imagen,
-        userId: usuario.id,
-      },
-    });
-    fs.writeFileSync(
-      path.join(__dirname, `../../images/${imagen}`),
-      file.buffer,
-    );
+    // Convertir categoryId a número
+    const categoryId = parseInt(createOportunidadeDto.categoryId, 10);
+    if (isNaN(categoryId)) {
+      throw new BadRequestException('Invalid category ID');
+    }
 
-    return oportunidad;
+    try {
+      const oportunidad = await this.opportunity.create({
+        data: {
+          name: createOportunidadeDto.name,
+          description: createOportunidadeDto.description,
+          date: createOportunidadeDto.date,
+          location: createOportunidadeDto.location,
+          image: imagen,
+          userId: usuario.id,
+          categoryId: categoryId,
+        },
+      });
+
+      fs.writeFileSync(
+        path.join(__dirname, `../../images/${imagen}`),
+        file.buffer,
+      );
+
+      return oportunidad;
+    } catch (error) {
+      console.error('Error creating opportunity:', error);
+      throw new BadRequestException('Error creating opportunity');
+    }
   }
 
   findAll() {
     return this.opportunity.findMany({
       include: {
-        User: true, // Incluye el usuario que creó la oportunidad
+        User: true,
+      },
+    });
+  }
+
+  findByCategory(categoryId: number) {
+    return this.opportunity.findMany({
+      where: {
+        categoryId,
+      },
+      include: {
+        User: true,
       },
     });
   }
@@ -49,7 +76,7 @@ export class OportunidadesService extends PrismaClient {
     return this.opportunity.findFirst({
       where: { id, isActive: true },
       include: {
-        User: true, // Incluye el usuario que creó la oportunidad
+        User: true,
       },
     });
   }
@@ -117,8 +144,21 @@ export class OportunidadesService extends PrismaClient {
   getUserOpportunities(id: string) {
     return this.opportunityMembers.findMany({
       where: { userId: id },
-      include: { 
-        Opportunity: true, // Asegúrate de incluir la relación con la tabla de oportunidades
+      include: {
+        Opportunity: true,
+      },
+    });
+  }
+
+  getUserOpportunitiesCompleted(id: string) {
+    return this.opportunityMembers.findMany({
+      where: { userId: id },
+      include: {
+        Opportunity: {
+          where: {
+            isFinished: true,
+          },
+        },
       },
     });
   }
@@ -188,5 +228,9 @@ export class OportunidadesService extends PrismaClient {
       },
     });
     return { oportunidad };
+  }
+
+  getCategories() {
+    return this.category.findMany({});
   }
 }

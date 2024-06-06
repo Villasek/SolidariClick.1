@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { Router } from '@angular/router';
@@ -12,17 +12,21 @@ import { Router } from '@angular/router';
 export class ActivityCreateComponent implements OnInit {
   formCreateActivity: FormGroup;
   selectedFile: File | null = null;
+  categories: any[] = [];
 
   constructor(private fb: FormBuilder, private readonly router: Router) {
     this.formCreateActivity = this.fb.group({
-      name: [''],
-      description: [''],
-      date: [''],
-      location: ['']
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      date: ['', Validators.required],
+      location: ['', Validators.required],
+      categoryId: [null, Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadCategories();
+  }
 
   onFileChange(event: any) {
     if (event.target.files.length > 0) {
@@ -30,12 +34,29 @@ export class ActivityCreateComponent implements OnInit {
     }
   }
 
+  async loadCategories() {
+    try {
+      const response = await axios.get('http://127.0.0.1:3000/oportunidades/categorias');
+      this.categories = response.data;
+      console.log('Categories loaded:', this.categories);
+    } catch (error) {
+      console.error('Error loading categories', error);
+    }
+  }
+
   async submit() {
     try {
-      const token = Cookies.get('session');  // Obtener el token desde las cookies
-      console.log('Token de sesión:', token); // Mostrar el token por consola
+      const token = Cookies.get('session');
+      console.log('Token de sesión:', token);
       if (!token) {
         throw new Error('No token found');
+      }
+
+      const categoryIdValue = this.formCreateActivity.get('categoryId')?.value;
+      console.log('categoryIdValue:', categoryIdValue);
+
+      if (!categoryIdValue) {
+        throw new Error('Invalid category ID');
       }
 
       const formData = new FormData();
@@ -46,26 +67,31 @@ export class ActivityCreateComponent implements OnInit {
       }
       formData.append('date', this.formCreateActivity.get('date')?.value);
       formData.append('location', this.formCreateActivity.get('location')?.value);
+      formData.append('categoryId', categoryIdValue.toString());
+
+      console.log('FormData:', formData);
 
       const response = await axios.post('http://127.0.0.1:3000/oportunidades', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer ${JSON.parse(token)}`  // Incluir el token en los encabezados
+          'Authorization': `Bearer ${JSON.parse(token)}`
         }
       });
 
       console.log('Activity created successfully', response.data);
-
-      // Mostrar mensaje emergente de éxito
       alert('La actividad se ha creado exitosamente');
-
-      // Redirigir a la página de inicio
       this.router.navigate(['/home']);
     } catch (error) {
-      console.error('Error creating activity', error);
-
-      // Mostrar mensaje emergente de error
-      alert('Hubo un error al crear la actividad. Por favor, inténtelo de nuevo.');
+      if (axios.isAxiosError(error)) {
+        console.error('Error creating activity', error.response ? error.response.data : error.message);
+        alert(`Error creating activity: ${error.response ? error.response.data.message : error.message}`);
+      } else if (error instanceof Error) {
+        console.error('Unexpected error', error.message);
+        alert(`Unexpected error: ${error.message}`);
+      } else {
+        console.error('Unexpected error', error);
+        alert('An unexpected error occurred');
+      }
     }
   }
 }

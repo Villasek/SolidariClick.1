@@ -8,6 +8,7 @@ import {
   UploadedFile,
   UseInterceptors,
   Patch,
+  BadRequestException,
 } from '@nestjs/common';
 import { OportunidadesService } from './oportunidades.service';
 import { CreateOportunidadeDto } from './dto/create-oportunidade.dto';
@@ -25,17 +26,21 @@ export class OportunidadesController {
   @Post()
   @Auth('empresa')
   @UseInterceptors(FileInterceptor('file'))
-  create(
+  async create(
     @Body() createOportunidadeDto: CreateOportunidadeDto,
     @UploadedFile(new ParseFilePipe({}))
     file: Express.Multer.File,
     @User() usuario: TUser,
   ) {
-    return this.oportunidadesService.create(
-      createOportunidadeDto,
-      file,
-      usuario,
-    );
+    try {
+      return await this.oportunidadesService.create(
+        createOportunidadeDto,
+        file,
+        usuario,
+      );
+    } catch (error) {
+      throw new BadRequestException(error.message || 'Error creating opportunity');
+    }
   }
 
   @Get('/oportunidades-empresa')
@@ -44,16 +49,32 @@ export class OportunidadesController {
     return this.oportunidadesService.getCompanyOpportunities(usuario.id);
   }
 
+  @Get('categorias')
+  findCategories() {
+    return this.oportunidadesService.getCategories();
+  }
+
   @Get('/mis-oportunidades-inscritas')
   @Auth()
   findMyOpportunities(@User() usuario: TUser) {
     return this.oportunidadesService.getUserOpportunities(usuario.id);
   }
 
+  @Get('/mis-oportunidades-completadas')
+  @Auth()
+  findCompletedOpportunities(@User() usuario: TUser) {
+    return this.oportunidadesService.getUserOpportunitiesCompleted(usuario.id);
+  }
+
   @Get('/solicitudes-empresa')
   @Auth('empresa')
   findRequestsForCompany(@User() usuario: TUser) {
     return this.oportunidadesService.findRequestsForCompany(usuario.id);
+  }
+
+  @Get('/filtrar-categoria/:categoria')
+  findByCategory(@Param('categoria') categoria: string) {
+    return this.oportunidadesService.findByCategory(+categoria);
   }
 
   @Get()

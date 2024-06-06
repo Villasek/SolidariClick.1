@@ -8,6 +8,7 @@ import { PrismaClient } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { LoginUserDto } from './dto/login-user.dto';
+import { InteresesDto } from './dto/intereses.dto';
 
 @Injectable()
 export class UsersService extends PrismaClient {
@@ -52,7 +53,7 @@ export class UsersService extends PrismaClient {
       where: { email: infoUsuario.email },
     });
 
-    if(!usuario) {
+    if (!usuario) {
       throw new BadRequestException('Este usuario no existe');
     }
     const isCorrectPassword = await bcrypt.compare(
@@ -83,5 +84,15 @@ export class UsersService extends PrismaClient {
       },
     });
   }
-}
 
+  updateIntereses(userId: string, { intereses }: InteresesDto) {
+    return this.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        interests: intereses,
+      },
+    });
+  }
+}
