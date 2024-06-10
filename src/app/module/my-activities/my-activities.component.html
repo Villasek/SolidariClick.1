@@ -1,4 +1,3 @@
-<!-- my-activities.component.html -->
 <section class="profile-section">
   <div class="principal">
     <h2>Mis Actividades Inscritas</h2>
@@ -11,7 +10,7 @@
           <p><strong>Descripción:</strong> {{ activity.Opportunity.description }}</p>
           <p><strong>Fecha:</strong> {{ activity.Opportunity.date }}</p>
           <p><strong>Ubicación:</strong> {{ activity.Opportunity.location }}</p>
-          <p><strong>Estado de la postulación:</strong> {{ activity.userStatus === 'pending' ? 'Pendiente' : activity.userStatus }}</p>
+          <p><strong>Estado de la postulación:</strong> {{ getTranslatedStatus(activity.userStatus) }}</p>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { Auth } from './auth.decorator';
 import { User } from './user.decorator';
 import { type User as TUser } from '@prisma/client';
 import { InteresesDto } from './dto/intereses.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Controller('usuarios')
 export class UsersController {
@@ -23,7 +24,7 @@ export class UsersController {
 
   @Get('perfil')
   @Auth()
-  peril(@User() user: TUser) {
+  perfil(@User() user: TUser) {
     return this.usersService.perfil(user.id);
   }
 
@@ -31,5 +32,11 @@ export class UsersController {
   @Auth()
   actualizarIntereses(@User() user: TUser, @Body() data: InteresesDto) {
     return this.usersService.updateIntereses(user.id, data);
+  }
+
+  @Put('actualizar-perfil')
+  @Auth()
+  actualizarPerfil(@User() user: TUser, @Body() updateUserDto: UpdateUserDto) {
+    return this.usersService.updateUser(user.id, updateUserDto);
   }
 }

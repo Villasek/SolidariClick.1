@@ -1,82 +1,64 @@
 /* edit-profile.component.css */
 
-.edit-profile-section {
+.profile-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: url('/assets/images/photo4.jpg') no-repeat center center fixed; /* Imagen de fondo */
+  padding: 40px;
+  background: url('/assets/images/photo4.jpg') no-repeat center center fixed;
   background-size: cover;
+  min-height: 100vh;
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.form-container {
-  background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
-  padding: 30px;
+.profile-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
   width: 100%;
-  transition: transform 0.3s, box-shadow 0.3s;
+  max-width: 600px;
 }
 
-.form-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group h2 {
+.profile-container h2 {
+  text-align: center;
   font-size: 2.5em;
   margin-bottom: 20px;
   color: #007bff;
   font-weight: 700;
 }
 
-label {
+.profile-container form div {
+  margin-bottom: 15px;
+}
+
+.profile-container label {
   display: block;
-  margin-bottom: 8px;
+  font-weight: bold;
+  margin-bottom: 5px;
   color: #333;
 }
 
-.profile-image {
-  max-width: 150px;
-  max-height: 80px;
-  border-radius: 20px;
-  display: block;
-  margin: 10px auto;
-}
-
-.form-control {
+.profile-container input,
+.profile-container select {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
-.form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.btn-submit {
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
   background-color: #007bff;
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
   font-size: 1em;
-  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
 }
 
-.btn-submit:hover {
+button:hover {
   background-color: #0056b3;
-  transform: scale(1.05);
 }

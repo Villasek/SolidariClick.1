@@ -32,6 +32,10 @@ model User {
   isCompany     Boolean
   isActive      Boolean              @default(true)
   createdAt     DateTime             @default(now())
+  // Nuevas propiedades
+  profilePicture String?
+  gender        String?
+  age           Int?
   // Relaciones
   activities    Opportunity[]
   opportunities OpportunityMembers[]

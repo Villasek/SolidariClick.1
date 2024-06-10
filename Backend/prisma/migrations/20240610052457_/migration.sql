@@ -17,6 +17,9 @@ CREATE TABLE "User" (
     "isCompany" BOOLEAN NOT NULL,
     "isActive" BOOLEAN NOT NULL DEFAULT true,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "profilePicture" TEXT,
+    "gender" TEXT,
+    "age" INTEGER,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );

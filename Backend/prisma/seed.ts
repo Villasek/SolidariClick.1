@@ -4,17 +4,17 @@ const prisma = new PrismaClient();
 
 async function main() {
   const categories = [
-    { name: 'comunitario' },
-    { name: 'social' },
-    { name: 'ocio y tiempo libre' },
-    { name: 'protección civil' },
-    { name: 'socio-sanitario' },
-    { name: 'educativo' },
-    { name: 'deportivo' },
-    { name: 'internacional' },
-    { name: 'cultural' },
-    { name: 'medio ambiente' },
-    { name: 'otros' },
+    { name: 'Comunitario' },
+    { name: 'Social' },
+    { name: 'Ocio y tiempo libre' },
+    { name: 'Protección civil' },
+    { name: 'Socio-sanitario' },
+    { name: 'Educativo' },
+    { name: 'Deportivo' },
+    { name: 'Internacional' },
+    { name: 'Cultural' },
+    { name: 'Medio ambiente' },
+    { name: 'Otros' },
   ];
 
   for (const category of categories) {

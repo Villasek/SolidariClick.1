@@ -9,6 +9,7 @@ import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { LoginUserDto } from './dto/login-user.dto';
 import { InteresesDto } from './dto/intereses.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService extends PrismaClient {
@@ -70,6 +71,7 @@ export class UsersService extends PrismaClient {
       token: this.jwtService.sign({ id: usuario.id }),
     };
   }
+
   perfil(id: string) {
     return this.user.findUnique({
       where: {
@@ -81,6 +83,9 @@ export class UsersService extends PrismaClient {
         name: true,
         roles: true,
         rut: true,
+        gender: true,
+        age: true,
+        interests: true,
       },
     });
   }
@@ -92,6 +97,20 @@ export class UsersService extends PrismaClient {
       },
       data: {
         interests: intereses,
+      },
+    });
+  }
+
+  async updateUser(userId: string, updateUserDto: UpdateUserDto) {
+    const { interests, ...rest } = updateUserDto;
+
+    return this.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        ...rest,
+        interests: interests?.map((interest: string) => parseInt(interest, 10)),
       },
     });
   }

@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProfileService } from '../../services/profile.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import Cookies from 'js-cookie';
+
+interface Category {
+  id: number;
+  name: string;
+}
 
 @Component({
   selector: 'app-edit-profile',
@@ -8,54 +15,97 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
-  profileForm: FormGroup;
-  imageUrl: string | ArrayBuffer | null = null;
-  userData: any = {}; // Define una propiedad para almacenar los datos del usuario
+  editProfileForm: FormGroup;
+  categories: Category[] = [];
 
-  constructor(private fb: FormBuilder, private profileService: ProfileService) {
-    this.profileForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      telefono: [''],
-      password: ['', Validators.minLength(6)]
+  private apiUrl = 'http://127.0.0.1:3000/usuarios';
+
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {
+    this.editProfileForm = this.fb.group({
+      name: [''],
+      profilePicture: [null],
+      gender: [''],
+      age: [null],
+      interests: [[]]
     });
   }
 
   ngOnInit(): void {
-    // Aquí podrías cargar los datos del perfil actual para mostrarlos en el formulario
+    this.loadUserProfile();
+    this.loadCategories();
   }
 
-  onSubmit(): void {
-    if (this.profileForm.valid) {
-      // Asegúrate de enviar la imagen junto con los otros datos del formulario al servicio
-      const profileData = {
-        ...this.profileForm.value,
-        profileImage: this.imageUrl
-      };
-      this.profileService.updateProfile(profileData).subscribe({
-        next: () => {
-          console.log('Perfil actualizado correctamente');
-          // Aquí podrías redirigir al usuario a otra página o mostrar un mensaje de éxito
-        },
-        error: (err) => {
-          console.error('Error al actualizar perfil:', err);
-          // Aquí podrías mostrar un mensaje de error al usuario
-        }
+  loadUserProfile() {
+    const token = Cookies.get('session');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${JSON.parse(token ?? '{}')}`
+    });
+
+    this.http.get<any>(`${this.apiUrl}/perfil`, { headers }).subscribe(profile => {
+      this.editProfileForm.patchValue({
+        name: profile.name,
+        gender: profile.gender,
+        age: profile.age,
+        interests: profile.interests
       });
-    } else {
-      console.error('Formulario inválido');
-      // Aquí podrías mostrar un mensaje de error al usuario indicando que hay campos inválidos
+    });
+  }
+
+  loadCategories() {
+    this.http.get<Category[]>('http://127.0.0.1:3000/oportunidades/categorias').subscribe(categories => {
+      this.categories = categories;
+    });
+  }
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    this.editProfileForm.patchValue({
+      profilePicture: file
+    });
+  }
+
+  onCheckboxChange(event: any) {
+    const interestsControl = this.editProfileForm.get('interests');
+    if (interestsControl) {
+      const interestsArray = interestsControl.value as number[];
+      if (event.target.checked) {
+        interestsArray.push(event.target.value);
+      } else {
+        const index = interestsArray.indexOf(event.target.value);
+        if (index > -1) {
+          interestsArray.splice(index, 1);
+        }
+      }
+      interestsControl.setValue(interestsArray);
     }
   }
 
-  onFileSelected(event: any): void {
-    const file: File = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        this.imageUrl = e.target?.result as string | ArrayBuffer | null;
-      };
-      reader.readAsDataURL(file);
-    }
+  updateProfile() {
+    const formData = new FormData();
+    formData.append('name', this.editProfileForm.get('name')?.value);
+    formData.append('gender', this.editProfileForm.get('gender')?.value);
+    formData.append('age', this.editProfileForm.get('age')?.value);
+    formData.append('profilePicture', this.editProfileForm.get('profilePicture')?.value);
+  
+    const interests = this.editProfileForm.get('interests')?.value;
+    interests.forEach((interest: any) => {
+      formData.append('interests', interest);
+    });
+  
+    const token = Cookies.get('session');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${JSON.parse(token ?? '{}')}`
+    });
+  
+    this.http.put(`${this.apiUrl}/actualizar-perfil`, formData, { headers }).subscribe(response => {
+      this.router.navigate(['/profile']);
+    }, error => {
+      console.error('Error updating profile:', error);
+    });
   }
+  
 }

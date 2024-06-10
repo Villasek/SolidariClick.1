@@ -33,4 +33,17 @@ export class MyActivitiesComponent implements OnInit {
       console.error('Error fetching my activities:', error);
     }
   }
+
+  getTranslatedStatus(status: string): string {
+    switch (status) {
+      case 'accepted':
+        return 'Aceptado';
+      case 'rejected':
+        return 'Rechazado';
+      case 'pending':
+        return 'Pendiente';
+      default:
+        return status;
+    }
+  }
 }
