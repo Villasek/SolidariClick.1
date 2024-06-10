@@ -1,45 +1,82 @@
-
-
 /* edit-profile.component.css */
 
-form {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 30px;
-    border-radius: 5px;
-    background-color:rgb(247, 244, 244) ;
-   
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 15px;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  button {
-    background-color: orangered;
-    display: block;
-    margin: auto;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0026ff;
-  }
-  
- 
+.edit-profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('/assets/images/photo4.jpg') no-repeat center center fixed; /* Imagen de fondo */
+  background-size: cover;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #007bff;
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.profile-image {
+  max-width: 150px;
+  max-height: 80px;
+  border-radius: 20px;
+  display: block;
+  margin: 10px auto;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
