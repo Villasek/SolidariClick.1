@@ -64,7 +64,7 @@ export class OportunidadesService extends PrismaClient {
   findByCategory(categoryId: number) {
     return this.opportunity.findMany({
       where: {
-        categoryId,
+        categoryId: categoryId,
       },
       include: {
         User: true,

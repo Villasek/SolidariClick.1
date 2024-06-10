@@ -1,33 +1,108 @@
-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f3f3f3;
-    border-radius: 10px;
-  }
-  
-  .activity {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .activity h3 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .activity p {
-    color: #666;
-    margin-bottom: 5px;
-  }
-  
-  /* Estilos para cuando no hay actividades inscritas */
-  p.no-activities {
-    color: #666;
-    font-style: italic;
-    text-align: center;
-  }
-  
+/* General Section Styling */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: url('/assets/images/photo6.jpg') no-repeat center center fixed; /* Imagen de fondo */
+  background-size: cover; /* Asegura que el fondo cubra toda la sección */
+  min-height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+  box-sizing: border-box; /* Incluye padding y border en el cálculo de ancho y alto */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Main Title and Activity Section */
+.principal {
+  margin: 20px auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 1200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.principal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.principal h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #007bff;
+  font-weight: 700;
+}
+
+/* Activity Container Styling */
+.fondo {
+  background: rgba(255, 255, 255, 0.8); /* Fondo blanco con mayor transparencia */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 1200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fondo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  margin: 10px;
+  padding: 15px;
+  width: 100%;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.activity-header {
+  background-color: #0d47a1;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+}
+
+.activity-header h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.activity-body {
+  padding: 15px;
+  width: 100%;
+}
+
+.activity-body p {
+  margin: 10px 0;
+  color: #333;
+}
+
+.activity-body p strong {
+  color: #0d47a1;
+}
+
+/* Estilo para cuando no hay actividades inscritas */
+.no-activities {
+  text-align: center;
+  color: #757575;
+  font-size: 1.2em;
+  margin-top: 20px;
+  font-style: italic;
+}

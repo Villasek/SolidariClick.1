@@ -1,27 +1,21 @@
-<section>
-    <div class="profile">
-      <img [src]="userData.imageUrl" alt="Foto de perfil">
-    </div>
-    <div class="user-info">
-      <p><strong>Nombre:</strong> {{ userData.name }}</p>
-      <p><strong>Email:</strong> {{ userData.email }}</p>
-      <p><strong>Rol:</strong> {{ displayRole }}</p> <!-- Utiliza la propiedad calculada -->
-      <p><strong>RUT:</strong> {{ userData.rut }}</p>
-      <p><strong>Dirección:</strong> {{ userData.address }}</p>
-      
-      <p><strong>Historial de actividades:</strong> </p>
-  
-      <!-- Render condicional del botón "Crear oportunidad" -->
-     </div>
-     <div class="botones">
-     <button *ngIf="userData.roles === 'empresa'" routerLink="/create">Crear oportunidad</button>
-     <br>
-     <br>
-     <button *ngIf="userData.roles === 'empresa'" routerLink="/requests">Solicitudes</button>
-     <br>
-     <br>
-     <button routerLink="/edit">Editar Perfil</button>
-     </div>
+<section class="profile-section">
+  <div class="profile-card">
+      <div class="profile-image">
+          <img [src]="userData.imageUrl" alt="Foto de perfil">
+      </div>
+      <div class="user-info">
+          <h2>{{ userData.name }}</h2>
+          <p><strong>Email:</strong> {{ userData.email }}</p>
+          <p><strong>Rol:</strong> {{ displayRole }}</p>
+          <p><strong>RUT:</strong> {{ userData.rut }}</p>
+          <p><strong>Dirección:</strong> {{ userData.address }}</p>
+          <h3>Historial de actividades:</h3>
+      </div>
+      <div class="action-buttons">
+          <button *ngIf="userData.roles === 'empresa'" routerLink="/create">Crear oportunidad</button>
+          <button *ngIf="userData.roles === 'empresa'" routerLink="/requests">Solicitudes</button>
+          <button routerLink="/edit">Editar Perfil</button>
+      </div>
+  </div>
 </section>
 <app-footer-navigation></app-footer-navigation>
-  

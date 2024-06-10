@@ -9,9 +9,11 @@ import axios from 'axios';
 export class ActividadComponent implements OnInit {
   activityData: any[] = []; // Data from the backend
   filteredActivityData: any[] = []; // Data to display based on filters
+  categories: any[] = [];
 
   ngOnInit(): void {
     this.obtenerOportunidades();
+    this.obtenerCategorias();
   }
 
   async obtenerOportunidades() {
@@ -21,6 +23,16 @@ export class ActividadComponent implements OnInit {
       this.filteredActivityData = data; // Initialize filtered data
     } catch (err) {
       console.log('Error al obtener las actividades');
+      console.log({ err });
+    }
+  }
+
+  async obtenerCategorias() {
+    try {
+      const { data } = await axios.get('http://127.0.0.1:3000/oportunidades/categorias');
+      this.categories = data;
+    } catch (err) {
+      console.log('Error al obtener las categorías');
       console.log({ err });
     }
   }

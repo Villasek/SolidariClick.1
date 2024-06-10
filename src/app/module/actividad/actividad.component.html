@@ -1,21 +1,11 @@
-<section>
+<section class="profile-section">
   <div class="principal">
     <h1>Lista de actividades</h1>
     <div>
       <label for="interests">Filtrar por intereses:</label>
       <select id="interests" (change)="filterByInterest($event)">
         <option value="all">Todos</option>
-        <option value="medio ambiente">Medio Ambiente</option>
-        <option value="comunitario">Comunitario</option>
-        <option value="cultural">Cultural</option>
-        <option value="deportivo">Deportivo</option>
-        <option value="educativo">Educativo</option>
-        <option value="internacional">Internacional</option>
-        <option value="ocio y tiempo libre">Ocio y Tiempo Libre</option>
-        <option value="protección civil">Protección Civil</option>
-        <option value="socio-sanitario">Socio-Sanitario</option>
-        <option value="social">Social</option>
-        <option value="otros">Otros</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
       </select>
     </div>
   </div>

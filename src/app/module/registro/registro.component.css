@@ -24,28 +24,28 @@
   
   @keyframes changeBackground {
     0% {
-      background: url('/assets/photos/photo1.jpg') no-repeat center center/cover;
+      background: url('/assets/images/photo1.jpg') no-repeat center center/cover;
     }
     20% {
-      background: url('/assets/photos/photo1.jpg') no-repeat center center/cover;
+      background: url('/assets/images/photo1.jpg') no-repeat center center/cover;
     }
     25% {
-      background: url('/assets/photos/photo2.jpg') no-repeat center center/cover;
+      background: url('/assets/images/photo2.jpg') no-repeat center center/cover;
     }
     45% {
-      background: url('/assets/photos/photo2.jpg') no-repeat center center/cover;
+      background: url('/assets/images/photo2.jpg') no-repeat center center/cover;
     }
     50% {
-      background: url('/assets/photos/photo3.jpg') no-repeat center center/cover;
+      background: url('/assets/images/photo3.jpg') no-repeat center center/cover;
     }
     70% {
-      background: url('/assets/photos/photo3.jpg') no-repeat center center/cover;
+      background: url('/assets/images/photo3.jpg') no-repeat center center/cover;
     }
     75% {
-      background: url('/assets/photos/photo1.jpg') no-repeat center center/cover;
+      background: url('/assets/images/photo1.jpg') no-repeat center center/cover;
     }
     100% {
-      background: url('/assets/photos/photo1.jpg') no-repeat center center/cover;
+      background: url('/assets/images/photo1.jpg') no-repeat center center/cover;
     }
   }
   

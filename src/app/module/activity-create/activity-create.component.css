@@ -1,22 +1,70 @@
-section{
-    background-image: url(https://educowebmedia.blob.core.windows.net/educowebmedia/educospain/media/images/blog/manos-voluntariado.jpg);
-    background-repeat: no-repeat;
-    background-size: 1920px 1080px;
-    background-position: center;
-    
-    
-  }
-h1{
-    text-align: center;
-    background-color: rgb(255, 0, 0);
-    color:white
+/* activity-create.component.css */
 
+/* Estilo del fondo */
+.background {
+    background: url('/assets/images/photo7.jpg') no-repeat center center fixed; /* Imagen de fondo */
+    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-button{
-    background-color: blue;
-}
-button:hover{
-    background-color: orangered;
+.form-container {
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+.form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.title h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-align: center;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}

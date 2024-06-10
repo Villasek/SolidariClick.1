@@ -1,20 +1,20 @@
-<section>
-  <div *ngIf="activityDetails">
-    <div class="contenedor">
-    <h1>{{ activityDetails.name }}</h1>
-    <img [src]="'http://127.0.0.1:3000/imagenes/' + activityDetails.image" alt="{{ activityDetails.name }}">
-    <div class="descripcion">
-      <p>{{ activityDetails.description }}</p>
-      <p>Fecha: {{ activityDetails.date }}</p>
-      <p>Ubicación: {{ activityDetails.location }}</p>
+<!-- detalles.component.html -->
+<section class="details-section">
+  <div *ngIf="activityDetails" class="activity-container">
+    <div class="activity-header">
+      <h1>{{ activityDetails.name }}</h1>
     </div>
-    <div class="text">
-      <label for="request"></label>
-      <input type="text" id="texto" name="texto" placeholder="Cuentanos porque quieres ser participe de esta actividad"><br>
-      </div>
-      <button class="boton-inscripcion" (click)="postular()">Inscribirme</button>
+    <img class="activity-image" [src]="'http://127.0.0.1:3000/imagenes/' + activityDetails.image" alt="{{ activityDetails.name }}">
+    <div class="activity-description">
+      <p>{{ activityDetails.description }}</p>
+      <p><strong>Fecha:</strong> {{ activityDetails.date }}</p>
+      <p><strong>Ubicación:</strong> {{ activityDetails.location }}</p>
+    </div>
+    <div class="activity-form">
+      <label for="request">Cuentanos porque quieres ser participe de esta actividad</label>
+      <textarea id="texto" name="texto" placeholder="Escribe aquí..."></textarea>
+      <button class="btn-submit" (click)="postular()">Inscribirme</button>
     </div>
   </div>
-  <br>
 </section>
 <app-footer-navigation></app-footer-navigation>

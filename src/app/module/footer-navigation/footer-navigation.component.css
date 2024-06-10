@@ -1,28 +1,62 @@
 /* footer-navigation.component.css */
-.footer{
-    background-color: #ffffff00;
-    color: #ffffff;
-    text-align: center;
-    padding: 0px ;
-    position:fixed ;
-    bottom: 0;
-    width: 100% ;
-  }
-  
+.footer {
+  background-color: #90caf9; /* Azul claro */
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.footer nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer nav ul li {
+  flex: 1;
+}
+
+.footer nav ul li p-button {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+.footer nav ul li p-button .ui-button {
+  width: 100%;
+  color: #0d47a1; /* Color azul más oscuro para el texto */
+  background-color: #90caf9; /* Color de fondo del botón */
+  border-radius: 25px; /* Bordes redondeados */
+  border: 2px solid #0d47a1; /* Borde del botón */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 1em; /* Tamaño de fuente */
+  transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.footer nav ul li p-button .ui-button:hover {
+  background-color: #64b5f6; /* Color de fondo del botón en hover */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+.footer nav ul li p-button .ui-button:focus {
+  outline: none; /* Quita el outline al enfocar */
+  box-shadow: 0 0 5px #0d47a1; /* Añade un shadow al enfocar */
+}
+
+@media (max-width: 768px) {
   .footer nav ul {
-    list-style-type: none;
-    padding: 0px;
-    border-top: 1px solid #9bd7db; /* Añade un borde superior para separar de los contenidos */
+    flex-direction: column;
   }
-  
+
   .footer nav ul li {
-    display:inline;
-    margin-right: 0px;
+    margin-bottom: 10px;
   }
-  
-  .footer nav ul li a {
-    color: #000000;
-    text-decoration: none;
-    border-right: 1px solid #555; /* Añade un borde derecho entre los elementos */
-    padding-right: 10px; /* Añade un espacio entre el borde y el texto */
-  }
+}

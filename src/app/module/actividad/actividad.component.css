@@ -1,7 +1,14 @@
 /* General Section Styling */
-section {
-  padding: 40px 20px;
-  background: linear-gradient(to right, #ece9e6, #ffffff); /* Gradiente sutil */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: url('/assets/images/photo5.jpg') no-repeat center center fixed; /* Imagen de fondo */
+  background-size: cover; /* Asegura que el fondo cubra toda la sección */
+  min-height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+  box-sizing: border-box; /* Incluye padding y border en el cálculo de ancho y alto */
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -9,17 +16,23 @@ section {
 .principal {
   margin: 20px auto;
   text-align: center;
-  background: #ffffff; /* Fondo blanco */
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   max-width: 1200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.principal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .principal h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  color: #333;
+  color: #007bff;
   font-weight: 700;
 }
 
@@ -44,12 +57,18 @@ section {
 
 /* Activity Container Styling */
 .fondo {
-  background: #f7f7f7; /* Fondo blanco con sombra */
+  background: rgba(255, 255, 255, 0.8); /* Fondo blanco con mayor transparencia */
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   margin: 20px auto;
   max-width: 1200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fondo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .actividades {
@@ -68,14 +87,14 @@ section {
   margin: 10px;
   padding: 15px;
   width: 300px;
-  border-radius: 12px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .actividad:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 .actividad img {
@@ -83,7 +102,7 @@ section {
   height: auto;
   border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
-  border-radius: 12px 12px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 .descripcion {
@@ -94,7 +113,7 @@ section {
 .descripcion h2 {
   font-size: 1.5em;
   margin-bottom: 10px;
-  color: #333;
+  color: #007bff;
 }
 
 .descripcion p {
@@ -104,18 +123,19 @@ section {
 
 .boton-inscripcion {
   padding: 10px 15px;
-  background-color: #ff5722;
+  background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   margin-top: 10px;
   width: 100%;
   text-align: center;
   font-size: 1em;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .boton-inscripcion:hover {
-  background-color: #e64a19;
+  background-color: #0056b3;
+  transform: scale(1.05);
 }

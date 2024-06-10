@@ -74,7 +74,11 @@ export class OportunidadesController {
 
   @Get('/filtrar-categoria/:categoria')
   findByCategory(@Param('categoria') categoria: string) {
-    return this.oportunidadesService.findByCategory(+categoria);
+    const categoryId = parseInt(categoria, 10);
+    if (isNaN(categoryId)) {
+      throw new BadRequestException('Invalid category ID');
+    }
+    return this.oportunidadesService.findByCategory(categoryId);
   }
 
   @Get()
