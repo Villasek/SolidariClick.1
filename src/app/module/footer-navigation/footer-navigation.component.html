@@ -1,13 +1,11 @@
 <!-- footer-navigation.component.html -->
 <footer class="footer">
-    <nav>
-      <ul>
-        <li><p-button  routerLink="/activities">Mis Actividades</p-button></li>
-        <li><p-button  routerLink="/profile">Perfil</p-button></li>
-        <li><p-button routerLink="/home">Actividades</p-button></li>
-        <li><p-button label="Salir"   (onClick)="logout()"></p-button>
-        </li>
-      </ul>
-    </nav>
-  </footer>
-  
+  <nav>
+    <ul>
+      <li><p-button routerLink="/activities" label="Mis Actividades"></p-button></li>
+      <li><p-button routerLink="/profile" label="Perfil"></p-button></li>
+      <li><p-button routerLink="/home" label="Actividades"></p-button></li>
+      <li><p-button label="Salir" (onClick)="logout()"></p-button></li>
+    </ul>
+  </nav>
+</footer>

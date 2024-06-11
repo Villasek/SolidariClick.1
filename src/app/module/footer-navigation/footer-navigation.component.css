@@ -3,7 +3,7 @@
   background-color: #90caf9; /* Azul claro */
   color: #ffffff;
   text-align: center;
-  padding: 10px 0;
+  padding: 5px 0; /* Reducido para hacer el footer más angosto */
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -31,13 +31,13 @@
 }
 
 .footer nav ul li p-button .ui-button {
-  width: 100%;
+  width: 90%; /* Reducido el ancho del botón */
   color: #0d47a1; /* Color azul más oscuro para el texto */
   background-color: #90caf9; /* Color de fondo del botón */
   border-radius: 25px; /* Bordes redondeados */
   border: 2px solid #0d47a1; /* Borde del botón */
-  padding: 10px 20px; /* Espaciado interno */
-  font-size: 1em; /* Tamaño de fuente */
+  padding: 5px 10px; /* Espaciado interno reducido */
+  font-size: 0.9em; /* Tamaño de fuente reducido */
   transition: background-color 0.3s, transform 0.3s; /* Transición suave */
 }
 
@@ -54,9 +54,10 @@
 @media (max-width: 768px) {
   .footer nav ul {
     flex-direction: column;
+    padding: 10px;
   }
 
   .footer nav ul li {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 }

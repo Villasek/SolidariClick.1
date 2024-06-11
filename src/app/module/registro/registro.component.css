@@ -95,4 +95,13 @@
   .text-center {
     color: black;
   }
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 150px; /* Ajusta el tamaño del contenedor */
+    height: 150px; /* Ajusta el tamaño del contenedor */}
   

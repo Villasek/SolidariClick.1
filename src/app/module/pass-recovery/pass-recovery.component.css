@@ -87,4 +87,14 @@
     color: red;
     font-size: 0.875em;
   }
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 100%; /* Ajusta el tamaño del contenedor */
+    height: 100%; /* Ajusta el tamaño del contenedor */
+  }
   
