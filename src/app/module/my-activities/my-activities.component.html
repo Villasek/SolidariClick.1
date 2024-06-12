@@ -3,23 +3,55 @@
     <img src="assets/images/logo2.png" alt="SolidariClick Logo" class="logo">
   </div>
   <div class="principal">
-    <h2>Mis Actividades Inscritas</h2>
-    <div *ngIf="activitiesData.length > 0; else noActivities" class="fondo">
-      <div *ngFor="let activity of activitiesData" class="activity-card">
-        <div class="activity-header">
-          <h3>{{ activity.Opportunity.name }}</h3>
-        </div>
-        <div class="activity-body">
-          <p><strong>Descripción:</strong> {{ activity.Opportunity.description }}</p>
-          <p><strong>Fecha:</strong> {{ activity.Opportunity.date }}</p>
-          <p><strong>Ubicación:</strong> {{ activity.Opportunity.location }}</p>
-          <p><strong>Estado de la postulación:</strong> {{ getTranslatedStatus(activity.userStatus) }}</p>
+    <h2 *ngIf="isCompanyUser; else userActivities">Mis Actividades Creadas</h2>
+    <ng-template #userActivities>
+      <h2>Mis Actividades Inscritas</h2>
+    </ng-template>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="isCompanyUser">
+      <div *ngIf="activitiesData.length > 0; else noActivities" class="fondo">
+        <div *ngFor="let activity of activitiesData" class="activity-card">
+          <div class="activity-header">
+            <h3>{{ activity.name }}</h3>
+          </div>
+          <div class="activity-body">
+            <p><strong>Descripción:</strong> {{ activity.description }}</p>
+            <p><strong>Fecha:</strong> {{ activity.date }}</p>
+            <p><strong>Ubicación:</strong> {{ activity.location }}</p>
+            <p><strong>Estado:</strong> {{ activity.isActive ? 'En Progreso' : (activity.isFinished ? 'Completada' : 'Pendiente') }}</p>
+            <button class="activity-button start-button" (click)="startActivity(activity.id)" [disabled]="activity.isActive || activity.isFinished">Comenzar Actividad</button>
+            <button class="activity-button end-button" (click)="endActivity(activity.id)" [disabled]="!activity.isActive || activity.isFinished">Terminar Actividad</button>
+            <button class="activity-button delete-button" (click)="deleteActivity(activity.id)">Eliminar Actividad</button>
+          </div>
         </div>
       </div>
+      <ng-template #noActivities>
+        <p class="no-activities">No tienes actividades creadas.</p>
+      </ng-template>
     </div>
-    <ng-template #noActivities>
-      <p class="no-activities">No tienes actividades inscritas.</p>
-    </ng-template>
+
+    <div *ngIf="!isCompanyUser">
+      <div *ngIf="activitiesData.length > 0; else noActivities" class="fondo">
+        <div *ngFor="let activity of activitiesData" class="activity-card">
+          <div class="activity-header">
+            <h3>{{ activity.Opportunity.name }}</h3>
+          </div>
+          <div class="activity-body">
+            <p><strong>Descripción:</strong> {{ activity.Opportunity.description }}</p>
+            <p><strong>Fecha:</strong> {{ activity.Opportunity.date }}</p>
+            <p><strong>Ubicación:</strong> {{ activity.Opportunity.location }}</p>
+            <p><strong>Estado de la postulación:</strong> {{ getTranslatedStatus(activity.userStatus) }}</p>
+          </div>
+        </div>
+      </div>
+      <ng-template #noActivities>
+        <p class="no-activities">No tienes actividades inscritas.</p>
+      </ng-template>
+    </div>
   </div>
 </section>
 <app-footer-navigation></app-footer-navigation>

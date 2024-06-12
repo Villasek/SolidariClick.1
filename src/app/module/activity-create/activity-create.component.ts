@@ -38,7 +38,6 @@ export class ActivityCreateComponent implements OnInit {
     try {
       const response = await axios.get('http://127.0.0.1:3000/oportunidades/categorias');
       this.categories = response.data;
-      console.log('Categories loaded:', this.categories);
     } catch (error) {
       console.error('Error loading categories', error);
     }

@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Injectable,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { CreateOportunidadeDto } from './dto/create-oportunidade.dto';
 import { PrismaClient } from '@prisma/client';
@@ -233,4 +234,56 @@ export class OportunidadesService extends PrismaClient {
   getCategories() {
     return this.category.findMany({});
   }
+
+ async startActivity(id: string): Promise<any> {
+    const oportunidad = await this.opportunity.findUnique({
+      where: { id },
+    });
+    if (!oportunidad) {
+      throw new NotFoundException('Oportunidad no encontrada');
+    }
+    if (!oportunidad.isActive || oportunidad.isFinished) {
+      throw new BadRequestException('La oportunidad no puede ser comenzada');
+    }
+    return this.opportunity.update({
+      where: { id },
+      data: { isActive: true, isFinished: false },
+    });
+  }
+
+  async endActivity(id: string): Promise<any> {
+    const oportunidad = await this.opportunity.findUnique({
+      where: { id },
+    });
+    if (!oportunidad) {
+      throw new NotFoundException('Oportunidad no encontrada');
+    }
+    if (!oportunidad.isActive || oportunidad.isFinished) {
+      throw new BadRequestException('La oportunidad no puede ser terminada');
+    }
+    return this.opportunity.update({
+      where: { id },
+      data: { isActive: false, isFinished: true },
+    });
+  }
+
+  async deleteActivity(id: string, userId: string): Promise<any> {
+    const oportunidad = await this.opportunity.findUnique({
+      where: { id },
+      include: { members: true },
+    });
+    if (!oportunidad) {
+      throw new NotFoundException('Oportunidad no encontrada');
+    }
+    if (oportunidad.userId !== userId) {
+      throw new UnauthorizedException('No autorizado para eliminar esta oportunidad');
+    }
+    if (oportunidad.members.length > 0) {
+      throw new BadRequestException('No es posible eliminar actividad con participantes');
+    }
+    return this.opportunity.delete({
+      where: { id },
+    });
+  }
+
 }

@@ -9,6 +9,7 @@ import {
   UseInterceptors,
   Patch,
   BadRequestException,
+  Delete,
 } from '@nestjs/common';
 import { OportunidadesService } from './oportunidades.service';
 import { CreateOportunidadeDto } from './dto/create-oportunidade.dto';
@@ -48,6 +49,31 @@ export class OportunidadesController {
   findCompanyOpportunities(@User() usuario: TUser) {
     return this.oportunidadesService.getCompanyOpportunities(usuario.id);
   }
+  // Endpoint para obtener las actividades del usuario empresa
+  @Get('/mis-actividades')
+  @Auth('empresa')
+  getMyActivities(@User() usuario: TUser) {
+    return this.oportunidadesService.getCompanyOpportunities(usuario.id);
+  }
+
+  @Patch('/comenzar-actividad/:id')
+  @Auth('empresa')
+  async startActivity(@Param('id') id: string): Promise<any> {
+    return this.oportunidadesService.startActivity(id);
+  }
+
+  @Patch('/terminar-actividad/:id')
+  @Auth('empresa')
+  async endActivity(@Param('id') id: string): Promise<any> {
+    return this.oportunidadesService.endActivity(id);
+  }
+
+  // Endpoint para eliminar una actividad
+  @Delete(':id')
+  @Auth('empresa')
+  async deleteActivity(@Param('id') id: string, @User() usuario: TUser): Promise<any> {
+    return this.oportunidadesService.deleteActivity(id, usuario.id);
+  } 
 
   @Get('categorias')
   findCategories() {

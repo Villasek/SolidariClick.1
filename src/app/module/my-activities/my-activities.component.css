@@ -1,4 +1,61 @@
-/* General Section Styling */
+/* Estilos para los botones */
+.activity-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #007bff; /* Color del botón */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.activity-button:disabled {
+  background-color: #ccc; /* Color del botón deshabilitado */
+  cursor: not-allowed;
+}
+
+.activity-button:hover:not(:disabled) {
+  background-color: #0056b3; /* Color del botón al pasar el mouse */
+  transform: translateY(-2px); /* Efecto de elevar al pasar el mouse */
+}
+
+.start-button {
+  background-color: #28a745; /* Verde para empezar */
+}
+
+.start-button:hover:not(:disabled) {
+  background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+
+.end-button {
+  background-color: #dc3545; /* Rojo para terminar */
+}
+
+.end-button:hover:not(:disabled) {
+  background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+}
+
+.delete-button {
+  background-color: #f44336; /* Rojo para eliminar */
+}
+
+.delete-button:hover:not(:disabled) {
+  background-color: #d32f2f; /* Rojo más oscuro al pasar el mouse */
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Resto del CSS */
 .profile-section {
   display: flex;
   flex-direction: column;
@@ -12,7 +69,6 @@
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Logo Styling */
 .logo-container {
   position: absolute;
   top: 20px;
@@ -27,7 +83,6 @@
   object-fit: cover; /* Asegura que la imagen mantenga su aspecto */
 }
 
-/* Main Title and Activity Section */
 .principal {
   margin: 20px auto;
   text-align: center;
@@ -51,7 +106,6 @@
   font-weight: 700;
 }
 
-/* Activity Container Styling */
 .fondo {
   background: rgba(255, 255, 255, 0.8); /* Fondo blanco con mayor transparencia */
   padding: 40px;
@@ -113,7 +167,6 @@
   color: #0d47a1;
 }
 
-/* Estilo para cuando no hay actividades inscritas */
 .no-activities {
   text-align: center;
   color: #757575;
