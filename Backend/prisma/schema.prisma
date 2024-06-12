@@ -36,6 +36,7 @@ model User {
   profilePicture String?
   gender        String?
   age           Int?
+  points        Int?                 @default(0) // Nuevo campo de puntos
   // Relaciones
   activities    Opportunity[]
   opportunities OpportunityMembers[]
@@ -53,6 +54,7 @@ model Opportunity {
   isActive    Boolean              @default(true)
   isFinished  Boolean              @default(false)
   createdAt   DateTime             @default(now())
+  points      Int?                 @default(0)// Nuevo campo de puntos
   // Relación con el creador de la actividad
   User        User?                @relation(fields: [userId], references: [id])
   userId      String?

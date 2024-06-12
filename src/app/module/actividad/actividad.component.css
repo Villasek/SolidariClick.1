@@ -115,7 +115,8 @@
 
 .actividad img {
   width: 100%;
-  height: auto;
+  height: 200px; /* Ajusta la altura según sea necesario */
+  object-fit: cover; /* Recorta la imagen para que se ajuste al contenedor */
   border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
   border-radius: 15px 15px 0 0;

@@ -20,6 +20,7 @@ CREATE TABLE "User" (
     "profilePicture" TEXT,
     "gender" TEXT,
     "age" INTEGER,
+    "points" INTEGER DEFAULT 0,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -35,6 +36,7 @@ CREATE TABLE "Opportunity" (
     "isActive" BOOLEAN NOT NULL DEFAULT true,
     "isFinished" BOOLEAN NOT NULL DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "points" INTEGER DEFAULT 0,
     "userId" TEXT,
     "categoryId" INTEGER NOT NULL,
 

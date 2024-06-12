@@ -5,13 +5,13 @@ import Cookies from 'js-cookie';
 @Component({
   selector: 'app-footer-navigation',
   templateUrl: './footer-navigation.component.html',
-  styleUrl: './footer-navigation.component.css'
+  styleUrls: ['./footer-navigation.component.css']
 })
 export class FooterNavigationComponent {
-constructor (private readonly router: Router){}
+  constructor(private readonly router: Router) {}
 
-  logout(){
-    Cookies.remove('session')
-    this.router.navigate(['/login'])
+  logout() {
+    Cookies.remove('session');
+    this.router.navigate(['/login']);
   }
 }

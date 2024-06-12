@@ -20,7 +20,8 @@ export class ActivityCreateComponent implements OnInit {
       description: ['', Validators.required],
       date: ['', Validators.required],
       location: ['', Validators.required],
-      categoryId: [null, Validators.required]
+      categoryId: [null, Validators.required],
+      points: [null, Validators.required]
     });
   }
 
@@ -67,6 +68,7 @@ export class ActivityCreateComponent implements OnInit {
       formData.append('date', this.formCreateActivity.get('date')?.value);
       formData.append('location', this.formCreateActivity.get('location')?.value);
       formData.append('categoryId', categoryIdValue.toString());
+      formData.append('points', this.formCreateActivity.get('points')?.value);
 
       console.log('FormData:', formData);
 

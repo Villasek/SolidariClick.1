@@ -15,4 +15,8 @@ export class CreateOportunidadeDto {
 
   @IsString()
   categoryId: string;
+
+  
+  @IsString()
+  points: string;
 }

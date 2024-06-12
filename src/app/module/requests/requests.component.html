@@ -13,20 +13,34 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let request of requestsData">
-          <td>{{ request.Opportunity.name }}</td>
-          <td>{{ request.description }}</td>
-          <td>{{ request.User.name }}</td>
-          <td>{{ getUserStatus(request.userStatus) }}</td>
-          <td>
-            <button (click)="approveRequest(request.opportunityId, request.userId)" 
-                    [disabled]="request.userStatus === 'accepted'"
-                    class="btn-accept">Aceptar</button>
-            <button (click)="denyRequest(request.opportunityId, request.userId)" 
-                    [disabled]="request.userStatus === 'rejected'"
-                    class="btn-deny">Denegar</button>
-          </td>
-        </tr>
+        <ng-container *ngFor="let request of requestsData">
+          <tr>
+            <td>{{ request.Opportunity.name }}</td>
+            <td>{{ request.description }}</td>
+            <td>{{ request.User.name }}</td>
+            <td>{{ getUserStatus(request.userStatus) }}</td>
+            <td>
+              <button (click)="approveRequest(request.opportunityId, request.userId)" 
+                      [disabled]="request.userStatus === 'accepted'"
+                      class="btn-accept">Aceptar</button>
+              <button (click)="denyRequest(request.opportunityId, request.userId)" 
+                      [disabled]="request.userStatus === 'rejected'"
+                      class="btn-deny">Denegar</button>
+              <button (click)="toggleDetails(request.id)" 
+                      class="btn-view-more">Ver más</button>
+            </td>
+          </tr>
+          <tr *ngIf="request.showDetails" class="request-details">
+            <td colspan="5">
+              <div>
+                <p><strong>Nombre:</strong> {{ request.User.name }}</p>
+                <p><strong>Email:</strong> {{ request.User.email }}</p>
+                <p><strong>Descripción:</strong> {{ request.description }}</p>
+                <!-- Agrega más detalles según sea necesario -->
+              </div>
+            </td>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>

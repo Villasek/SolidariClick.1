@@ -28,6 +28,10 @@
         <option *ngFor="let category of categories" [ngValue]="category.id">{{ category.name }}</option>
       </select>
     </div>
+
+    <div class="form-group">
+      <input type="number" formControlName="points" autocomplete="off" placeholder="Puntos asociados" class="form-control">
+    </div>
     <div class="form-group">
       <button type="submit" class="btn-submit">Crear Actividad</button>
     </div>

@@ -39,6 +39,7 @@ export class OportunidadesService extends PrismaClient {
           image: imagen,
           userId: usuario.id,
           categoryId: categoryId,
+          points: +createOportunidadeDto.points
         },
       });
 
@@ -261,6 +262,24 @@ export class OportunidadesService extends PrismaClient {
     if (!oportunidad.isActive || oportunidad.isFinished) {
       throw new BadRequestException('La oportunidad no puede ser terminada');
     }
+
+    // * Puntos
+    const  members = await this.opportunityMembers.findMany({
+    where: {
+      opportunityId: id,
+      userStatus: 'accepted',
+    },
+  
+    });
+  
+    const usersUpdated = await this.user.updateMany({
+      where: { id: {in: members.map(({userId})=>userId)}},
+      data: {
+        //points: { increment: 10 }
+        points: { increment: oportunidad.points }
+      }
+    });   
+
     return this.opportunity.update({
       where: { id },
       data: { isActive: false, isFinished: true },

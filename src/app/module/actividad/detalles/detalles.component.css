@@ -1,103 +1,105 @@
 /* detalles.component.css */
 .details-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: url('https://www.telemundo.com/sites/nbcutelemundo/files/images/article/cover/2016/11/25/jovenes-voluntarios-recogiendo-basura.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    box-sizing: border-box;
-  }
-  /* Logo Styling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 60px; /* Añadir espacio para el footer */
+  background: url('https://www.telemundo.com/sites/nbcutelemundo/files/images/article/cover/2016/11/25/jovenes-voluntarios-recogiendo-basura.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Logo Styling */
 .logo-container {
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 150px; /* Ajusta el tamaño del contenedor */
-  height: 150px; /* Ajusta el tamaño del contenedor */
+  width: 150px;
+  height: 150px;
 }
 
 .logo {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que la imagen mantenga su aspecto */
+  object-fit: cover;
 }
-  
-  .activity-container {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    max-width: 600px;
-    width: 100%;
-  }
-  
-  .activity-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .activity-header h1 {
-    font-size: 2em;
-    color: #333;
-    text-transform: capitalize;
-  }
-  
-  .activity-image {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin-bottom: 20px;
-  }
-  
-  .activity-description {
-    text-align: center;
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  .activity-description p {
-    margin: 10px 0;
-  }
-  
-  .activity-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .activity-form label {
-    font-size: 1em;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .activity-form textarea {
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-  }
-  
-  .btn-submit {
-    background-color: #0d47a1;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  .btn-submit:hover {
-    background-color: #64b5f6;
-    transform: scale(1.05);
-  }
-  
+
+.activity-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.activity-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.activity-header h1 {
+  font-size: 2em;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.activity-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.activity-description {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.activity-description p {
+  margin: 10px 0;
+}
+
+.activity-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.activity-form label {
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.activity-form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.btn-submit {
+  background-color: #0d47a1;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #64b5f6;
+  transform: scale(1.05);
+}

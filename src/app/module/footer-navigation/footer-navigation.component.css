@@ -1,9 +1,8 @@
-/* footer-navigation.component.css */
 .footer {
-  background-color: #90caf9; /* Azul claro */
+  background-color: #90caf9; /* Light blue */
   color: #ffffff;
   text-align: center;
-  padding: 5px 0; /* Reducido para hacer el footer más angosto */
+  padding: 10px 0;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -31,24 +30,24 @@
 }
 
 .footer nav ul li p-button .ui-button {
-  width: 90%; /* Reducido el ancho del botón */
-  color: #0d47a1; /* Color azul más oscuro para el texto */
-  background-color: #90caf9; /* Color de fondo del botón */
-  border-radius: 25px; /* Bordes redondeados */
-  border: 2px solid #0d47a1; /* Borde del botón */
-  padding: 5px 10px; /* Espaciado interno reducido */
-  font-size: 0.9em; /* Tamaño de fuente reducido */
-  transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+  width: 90%; /* Reduced button width */
+  color: #0d47a1; /* Darker blue text color */
+  background-color: #90caf9; /* Button background color */
+  border-radius: 25px; /* Rounded borders */
+  border: 2px solid #0d47a1; /* Button border */
+  padding: 5px 10px; /* Reduced padding */
+  font-size: 0.9em; /* Reduced font size */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
 }
 
 .footer nav ul li p-button .ui-button:hover {
-  background-color: #64b5f6; /* Color de fondo del botón en hover */
-  transform: scale(1.05); /* Efecto de agrandamiento */
+  background-color: #64b5f6; /* Hover background color */
+  transform: scale(1.05); /* Hover scale effect */
 }
 
 .footer nav ul li p-button .ui-button:focus {
-  outline: none; /* Quita el outline al enfocar */
-  box-shadow: 0 0 5px #0d47a1; /* Añade un shadow al enfocar */
+  outline: none; /* Remove outline on focus */
+  box-shadow: 0 0 5px #0d47a1; /* Shadow on focus */
 }
 
 @media (max-width: 768px) {

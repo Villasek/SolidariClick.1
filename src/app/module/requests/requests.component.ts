@@ -27,7 +27,7 @@ export class RequestsComponent implements OnInit {
         }
       });
 
-      this.requestsData = response.data;
+      this.requestsData = response.data.map((request: any) => ({ ...request, showDetails: false }));
     } catch (error) {
       console.error('Error fetching requests:', error);
     }
@@ -84,5 +84,14 @@ export class RequestsComponent implements OnInit {
     } catch (error) {
       console.error('Error approving request:', error);
     }
+  }
+
+  toggleDetails(requestId: string) {
+    this.requestsData = this.requestsData.map(request => {
+      if (request.id === requestId) {
+        request.showDetails = !request.showDetails;
+      }
+      return request;
+    });
   }
 }

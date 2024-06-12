@@ -79,6 +79,15 @@ button:disabled {
   transform: scale(1.05);
 }
 
+.btn-view-more {
+  background-color: #2196f3;
+}
+
+.btn-view-more:hover:not(:disabled) {
+  background-color: #1e88e5;
+  transform: scale(1.05);
+}
+
 .no-requests {
   text-align: center;
   color: #757575;
