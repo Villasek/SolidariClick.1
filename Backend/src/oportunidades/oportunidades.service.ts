@@ -57,6 +57,9 @@ export class OportunidadesService extends PrismaClient {
 
   findAll() {
     return this.opportunity.findMany({
+      where:{
+        isFinished: false,
+      },
       include: {
         User: true,
       },

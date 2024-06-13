@@ -86,6 +86,7 @@ export class UsersService extends PrismaClient {
         gender: true,
         age: true,
         interests: true,
+        points: true,
       },
     });
   }

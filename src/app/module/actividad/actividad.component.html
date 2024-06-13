@@ -21,6 +21,7 @@
           <p>Fecha: {{ actividad.date }}</p>
           <p>Ubicación: {{ actividad.location }}</p>
           <p>Municipalidad: {{ actividad.User.name }}</p>
+          <p>Puntos: <i class="fas fa-star"></i> {{ actividad.points }}</p> <!-- Añadir puntos aquí -->
           <button class="boton-inscripcion" [routerLink]="['/details', actividad.id]">Inscribirme</button>
         </div>
       </div>

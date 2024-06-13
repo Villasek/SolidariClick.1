@@ -11,6 +11,7 @@ import { RequestsComponent } from './module/requests/requests.component';
 import { PassRecoveryComponent } from './module/pass-recovery/pass-recovery.component';
 import { ApplicationFormComponent } from './module/application-form/application-form.component';
 import { MyActivitiesComponent } from './module/my-activities/my-activities.component';
+import { PremiosComponent } from './module/premios/premios.component';
 
 const routes: Routes = [
   { path: 'home', component:  ActividadComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'recovery', component: PassRecoveryComponent },
   { path: 'application', component: ApplicationFormComponent },
   { path: 'activities', component: MyActivitiesComponent },
+  { path: 'awards', component: PremiosComponent },
 
   { path: '', redirectTo: '/login', pathMatch: 'full' }  // Redirigir a login por defecto
 ];

@@ -1,0 +1,140 @@
+.premios-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: url('/assets/images/photo6.jpg') no-repeat center center fixed; /* Imagen de fondo */
+    background-size: cover; /* Asegura que el fondo cubra toda la sección */
+    min-height: 100vh; /* Asegura que el fondo cubra toda la ventana */
+    box-sizing: border-box; /* Incluye padding y border en el cálculo de ancho y alto */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    position: relative;
+  }
+  
+  .logo-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 150px; /* Ajusta el tamaño del contenedor */
+    height: 150px; /* Ajusta el tamaño del contenedor */
+  }
+  
+  .logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen mantenga su aspecto */
+  }
+  
+  .principal {
+    margin: 20px auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .principal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .principal h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #007bff;
+    font-weight: 700;
+  }
+  
+  .fondo {
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco con mayor transparencia */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 1200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .fondo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .premios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .premio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    margin: 10px;
+    padding: 15px;
+    width: 300px;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .premio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .premio img {
+    width: 100%;
+    height: 200px; /* Ajusta la altura según sea necesario */
+    object-fit: cover; /* Recorta la imagen para que se ajuste al contenedor */
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .descripcion {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .descripcion h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #007bff;
+  }
+  
+  .descripcion p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .descripcion .fa-star {
+    color: #FFD700; /* Color dorado para la estrella */
+    margin-left: 5px;
+  }
+  
+  .boton-canje {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .boton-canje:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  

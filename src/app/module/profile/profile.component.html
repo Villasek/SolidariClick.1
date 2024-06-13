@@ -1,24 +1,30 @@
 <section class="profile-section">
-    <div class="col-12 logo-container">
-        <img src="assets/images/logo2.png" alt="SolidariClick Logo" class="logo">
-      </div>    
+  <div class="col-12 logo-container">
+    <img src="assets/images/logo2.png" alt="SolidariClick Logo" class="logo">
+  </div>
   <div class="profile-card">
-      <div class="profile-image">
-          <img [src]="userData.imageUrl" alt="Foto de perfil">
-      </div>
-      <div class="user-info">
-          <h2>{{ userData.name }}</h2>
-          <p><strong>Email:</strong> {{ userData.email }}</p>
-          <p><strong>Rol:</strong> {{ displayRole }}</p>
-          <p><strong>RUT:</strong> {{ userData.rut }}</p>
-          <p><strong>Dirección:</strong> {{ userData.address }}</p>
-          <h3>Historial de actividades:</h3>
-      </div>
-      <div class="action-buttons">
-          <button *ngIf="userData.roles === 'empresa'" routerLink="/create">Crear oportunidad</button>
-          <button *ngIf="userData.roles === 'empresa'" routerLink="/requests">Solicitudes</button>
-          <button routerLink="/edit">Editar Perfil</button>
-      </div>
+    <div class="profile-image">
+      <img [src]="userData.imageUrl" alt="Foto de perfil">
+    </div>
+    <div class="user-info">
+      <h2>{{ userData.name }}</h2>
+      <p><strong>Email:</strong> {{ userData.email }}</p>
+      <p><strong>Rol:</strong> {{ displayRole }}</p>
+      <p><strong>RUT:</strong> {{ userData.rut }}</p>
+      <p><strong>Dirección:</strong> {{ userData.address }}</p>
+      <p><strong>Puntos:</strong> <i class="fas fa-star"></i> {{ userData.points }}</p>
+      <h3>Historial de actividades:</h3>
+      <ul>
+        <li *ngFor="let activity of completedActivities">
+          {{ activity.Opportunity.name }} - {{ activity.Opportunity.date }} - {{ activity.Opportunity.location }}
+        </li>
+      </ul>
+    </div>
+    <div class="action-buttons">
+      <button *ngIf="userData.roles === 'empresa'" routerLink="/create">Crear oportunidad</button>
+      <button *ngIf="userData.roles === 'empresa'" routerLink="/requests">Solicitudes</button>
+      <button routerLink="/edit">Editar Perfil</button>
+    </div>
   </div>
 </section>
 <app-footer-navigation></app-footer-navigation>

@@ -20,6 +20,7 @@ import { RequestsComponent } from './module/requests/requests.component';
 import { PassRecoveryComponent } from './module/pass-recovery/pass-recovery.component';
 import { ApplicationFormComponent } from './module/application-form/application-form.component';
 import { MyActivitiesComponent } from './module/my-activities/my-activities.component';
+import { PremiosComponent } from './module/premios/premios.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MyActivitiesComponent } from './module/my-activities/my-activities.comp
     RequestsComponent,
     PassRecoveryComponent,
     ApplicationFormComponent,
-    MyActivitiesComponent
+    MyActivitiesComponent,
+    PremiosComponent,
   ],
   imports: [
     BrowserModule,
