@@ -30,7 +30,6 @@ export class LoginComponent {
 
     try {
       this.errorMessage = null;
-      console.log({ submit: true });
       const user = await axios.post('http://127.0.0.1:3000/usuarios/iniciar_sesion', {
         email: this.formLogin.get('email')?.value,
         password: this.formLogin.get('password')?.value,

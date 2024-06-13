@@ -43,7 +43,7 @@
         <p-button label="Registrarme" [link]="true" class="btn btn-success" (onClick)="submit()"></p-button>
       </div>
       <p>¿Tienes una cuenta? <a routerLink="/login">Inicia Sesión</a></p>
-      <div *ngIf="errorMessage" class="col-12 mt-2 text-danger">
+      <div *ngIf="errorMessage" class="col-12 mt-2 alert alert-danger">
         {{ errorMessage }}
       </div>
     </div>

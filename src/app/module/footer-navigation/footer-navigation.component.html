@@ -1,12 +1,13 @@
-<!-- footer-navigation.component.html -->
-<footer class="footer">
-  <nav>
-    <ul>
-      <li><p-button routerLink="/activities" label="Mis Actividades"></p-button></li>
-      <li><p-button routerLink="/awards" label="Premios"></p-button></li>
-      <li><p-button routerLink="/profile" label="Perfil"></p-button></li>
-      <li><p-button routerLink="/home" label="Actividades"></p-button></li>
-      <li><p-button label="Salir" (onClick)="logout()"></p-button></li>
-    </ul>
-  </nav>
-</footer>
+<!-- sidebar-navigation.component.html -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <img src="assets/images/logo.png" alt="SolidariClick Logo" class="logo">
+  </div>
+  <ul class="sidebar-menu">
+    <li><button routerLink="/activities" class="sidebar-button">Mis Actividades</button></li>
+    <li><button routerLink="/awards" class="sidebar-button">Premios</button></li>
+    <li><button routerLink="/profile" class="sidebar-button">Perfil</button></li>
+    <li><button routerLink="/home" class="sidebar-button">Oportunidades</button></li>
+    <li><button class="sidebar-button logout-button" (click)="logout()">Salir</button></li>
+  </ul>
+</nav>

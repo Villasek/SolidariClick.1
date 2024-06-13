@@ -16,7 +16,10 @@ export class RegistroComponent implements OnInit {
   esEmpresa: boolean = false;
   errorMessage: string | null = null;
 
-  constructor(private fb: FormBuilder, private readonly router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private readonly router: Router
+  ) {
     this.FormRegister = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       nombre: ['', Validators.required],
