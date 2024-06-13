@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   logo = properties.logo;
   formLogin: FormGroup;
+  errorMessage: string | null = null;
 
   constructor(private fb: FormBuilder, private readonly router: Router) {
     this.formLogin = this.fb.group({
@@ -28,6 +29,7 @@ export class LoginComponent {
     }
 
     try {
+      this.errorMessage = null;
       console.log({ submit: true });
       const user = await axios.post('http://127.0.0.1:3000/usuarios/iniciar_sesion', {
         email: this.formLogin.get('email')?.value,
@@ -43,7 +45,12 @@ export class LoginComponent {
 
       this.router.navigate(['/home']);
     } catch (error) {
-      console.log('Error al iniciar sesión');
+      console.log('Error al iniciar sesión', error);
+      if (axios.isAxiosError(error) && error.response) {
+        this.errorMessage = error.response.data.message;
+      } else {
+        this.errorMessage = 'Error al iniciar sesión. Por favor, inténtelo de nuevo.';
+      }
     }
   }
 }

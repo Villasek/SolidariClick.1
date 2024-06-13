@@ -53,7 +53,7 @@ export class UsersService extends PrismaClient {
     const usuario = await this.user.findUnique({
       where: { email: infoUsuario.email },
     });
-
+  
     if (!usuario) {
       throw new BadRequestException('Este usuario no existe');
     }
@@ -61,11 +61,11 @@ export class UsersService extends PrismaClient {
       infoUsuario.password,
       usuario.password,
     );
-
+  
     if (isCorrectPassword === false) {
       throw new UnauthorizedException('Credenciales incorrectas');
     }
-
+  
     return {
       usuario: usuario,
       token: this.jwtService.sign({ id: usuario.id }),

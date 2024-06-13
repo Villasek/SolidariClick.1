@@ -104,4 +104,18 @@
   .logo {
     width: 150px; /* Ajusta el tamaño del contenedor */
     height: 150px; /* Ajusta el tamaño del contenedor */}
+ 
+  .text-danger {
+    color: red;
+    font-size: 0.875em;
+  }
+  
+  .is-invalid {
+    border-color: red;
+  }
+  
+  .invalid-feedback {
+    color: red;
+    font-size: 0.875em;
+  }
   

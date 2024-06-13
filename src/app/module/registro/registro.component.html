@@ -1,33 +1,51 @@
 <section class="background d-flex align-items-center justify-content-center vh-100">
-    <form [formGroup]="FormRegister" class="form-container">
-      <div class="row mt-4 text-center">
-        <div class="col-12 logo-container">
-          <img src="assets/images/logo.png" alt="SolidariClick Logo" class="logo">
-        </div>
-        <h1>Regístrate </h1>
-        <div class="col-12 mt-2">
-          <input type="email" pInputText formControlName="email" autocomplete="off" placeholder="Ingrese su correo" class="form-control">
-        </div>
-        <div class="col-12 mt-2">
-          <input type="text" pInputText formControlName="nombre" autocomplete="off" placeholder="Ingrese su nombre" class="form-control">
-        </div>
-        <div class="col-12 mt-2">
-          <input type="text" pInputText formControlName="rut" autocomplete="off" placeholder="Ingrese su RUT" class="form-control">
-        </div>
-        <div class="col-12 mt-2">
-          <input type="password" pInputText formControlName="password" autocomplete="off" placeholder="Ingrese su contraseña" class="form-control">
-        </div>
-        <div class="col-12 mt-2">
-          <button type="button" (click)="botonEmpresa()" class="btn btn-primary">¿Eres una Municipalidad?</button>
-        </div>
-        <div class="col-12 mt-2" *ngIf="esEmpresa">
-          <input type="text" pInputText formControlName="direccion" autocomplete="off" placeholder="Ingrese su dirección" class="form-control">
-        </div>
-        <div class="col-12 mt-4">
-          <p-button label="Registrarme" [link]="true" class="btn btn-success" (onClick)="submit()"></p-button>
-        </div>
-        <p>¿Tienes una cuenta? <a routerLink="/login">Inicia Sesión</a></p>
+  <form [formGroup]="FormRegister" class="form-container" (ngSubmit)="submit()">
+    <div class="row mt-4 text-center">
+      <div class="col-12 logo-container">
+        <img src="assets/images/logo.png" alt="SolidariClick Logo" class="logo">
       </div>
-    </form>
-  </section>
-  
+      <h1>Regístrate</h1>
+      <div class="col-12 mt-2">
+        <input type="email" pInputText formControlName="email" autocomplete="off" placeholder="Ingrese su correo" class="form-control" [ngClass]="{'is-invalid': FormRegister.get('email')?.invalid && FormRegister.get('email')?.touched}">
+        <div *ngIf="FormRegister.get('email')?.invalid && FormRegister.get('email')?.touched" class="invalid-feedback">
+          <div *ngIf="FormRegister.get('email')?.errors?.['required']">El correo es requerido.</div>
+          <div *ngIf="FormRegister.get('email')?.errors?.['email']">El correo no es válido.</div>
+        </div>
+      </div>
+      <div class="col-12 mt-2">
+        <input type="text" pInputText formControlName="nombre" autocomplete="off" placeholder="Ingrese su nombre" class="form-control" [ngClass]="{'is-invalid': FormRegister.get('nombre')?.invalid && FormRegister.get('nombre')?.touched}">
+        <div *ngIf="FormRegister.get('nombre')?.invalid && FormRegister.get('nombre')?.touched" class="invalid-feedback">
+          <div *ngIf="FormRegister.get('nombre')?.errors?.['required']">El nombre es requerido.</div>
+        </div>
+      </div>
+      <div class="col-12 mt-2">
+        <input type="text" pInputText formControlName="rut" autocomplete="off" placeholder="Ingrese su RUT" class="form-control" [ngClass]="{'is-invalid': FormRegister.get('rut')?.invalid && FormRegister.get('rut')?.touched}">
+        <div *ngIf="FormRegister.get('rut')?.invalid && FormRegister.get('rut')?.touched" class="invalid-feedback">
+          <div *ngIf="FormRegister.get('rut')?.errors?.['required']">El RUT es requerido.</div>
+        </div>
+      </div>
+      <div class="col-12 mt-2">
+        <input type="password" pInputText formControlName="password" autocomplete="off" placeholder="Ingrese su contraseña" class="form-control" [ngClass]="{'is-invalid': FormRegister.get('password')?.invalid && FormRegister.get('password')?.touched}">
+        <div *ngIf="FormRegister.get('password')?.invalid && FormRegister.get('password')?.touched" class="invalid-feedback">
+          La contraseña es requerida.
+        </div>
+      </div>
+      <div class="col-12 mt-2">
+        <button type="button" (click)="botonEmpresa()" class="btn btn-primary">¿Eres una Municipalidad?</button>
+      </div>
+      <div class="col-12 mt-2" *ngIf="esEmpresa">
+        <input type="text" pInputText formControlName="direccion" autocomplete="off" placeholder="Ingrese su dirección" class="form-control" [ngClass]="{'is-invalid': FormRegister.get('direccion')?.invalid && FormRegister.get('direccion')?.touched}">
+        <div *ngIf="FormRegister.get('direccion')?.invalid && FormRegister.get('direccion')?.touched" class="invalid-feedback">
+          La dirección es requerida.
+        </div>
+      </div>
+      <div class="col-12 mt-4">
+        <p-button label="Registrarme" [link]="true" class="btn btn-success" (onClick)="submit()"></p-button>
+      </div>
+      <p>¿Tienes una cuenta? <a routerLink="/login">Inicia Sesión</a></p>
+      <div *ngIf="errorMessage" class="col-12 mt-2 text-danger">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </form>
+</section>
