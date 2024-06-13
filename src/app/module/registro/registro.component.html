@@ -22,6 +22,7 @@
         <input type="text" pInputText formControlName="rut" autocomplete="off" placeholder="Ingrese su RUT" class="form-control" [ngClass]="{'is-invalid': FormRegister.get('rut')?.invalid && FormRegister.get('rut')?.touched}">
         <div *ngIf="FormRegister.get('rut')?.invalid && FormRegister.get('rut')?.touched" class="invalid-feedback">
           <div *ngIf="FormRegister.get('rut')?.errors?.['required']">El RUT es requerido.</div>
+          <div *ngIf="FormRegister.get('rut')?.errors?.['invalidRut']">El RUT no es válido. Debe ser de la forma 12345678-9 o 12345678-K.</div>
         </div>
       </div>
       <div class="col-12 mt-2">

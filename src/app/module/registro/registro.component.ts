@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { properties } from '../../../assets/properties/properties';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { Router } from '@angular/router';
@@ -23,7 +23,7 @@ export class RegistroComponent implements OnInit {
     this.FormRegister = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       nombre: ['', Validators.required],
-      rut: ['', Validators.required],
+      rut: ['', [Validators.required, this.rutValidator]],
       password: ['', Validators.required],
       direccion: ['']
     });
@@ -39,6 +39,18 @@ export class RegistroComponent implements OnInit {
       this.FormRegister.get('direccion')?.clearValidators();
     }
     this.FormRegister.get('direccion')?.updateValueAndValidity();
+  }
+
+  rutValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const rut = control.value;
+    if (!rut) return null;
+    
+    const regex = /^[0-9]{7,8}-[\dKk]$/;
+    if (!regex.test(rut)) {
+      return { invalidRut: true };
+    }
+
+    return null;
   }
 
   async submit() {
