@@ -1,51 +1,54 @@
-<!-- requests.component.html -->
-<section class="requests-section">
-  <h2>Solicitudes de Usuarios</h2>
-  <div *ngIf="requestsData.length > 0; else noRequests" class="requests-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre de la Oportunidad</th>
-          <th>Descripción de la Solicitud</th>
-          <th>Nombre de Usuario</th>
-          <th>Estado de la Solicitud</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngFor="let request of requestsData">
-          <tr>
-            <td>{{ request.Opportunity.name }}</td>
-            <td>{{ request.description }}</td>
-            <td>{{ request.User.name }}</td>
-            <td>{{ getUserStatus(request.userStatus) }}</td>
-            <td>
-              <button (click)="approveRequest(request.opportunityId, request.userId)" 
-                      [disabled]="request.userStatus === 'accepted'"
-                      class="btn-accept">Aceptar</button>
-              <button (click)="denyRequest(request.opportunityId, request.userId)" 
-                      [disabled]="request.userStatus === 'rejected'"
-                      class="btn-deny">Denegar</button>
-              <button (click)="toggleDetails(request.id)" 
-                      class="btn-view-more">Ver más</button>
-            </td>
-          </tr>
-          <tr *ngIf="request.showDetails" class="request-details">
-            <td colspan="5">
-              <div>
-                <p><strong>Nombre:</strong> {{ request.User.name }}</p>
-                <p><strong>Email:</strong> {{ request.User.email }}</p>
-                <p><strong>Descripción:</strong> {{ request.description }}</p>
-                <!-- Agrega más detalles según sea necesario -->
-              </div>
-            </td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
+<div class="container">
+  <app-footer-navigation></app-footer-navigation>
+  <div class="main-content">
+    <section class="requests-section">
+      <h2>Solicitudes de Usuarios</h2>
+      <div *ngIf="requestsData.length > 0; else noRequests" class="requests-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre de la Oportunidad</th>
+              <th>Descripción de la Solicitud</th>
+              <th>Nombre de Usuario</th>
+              <th>Estado de la Solicitud</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let request of requestsData">
+              <tr>
+                <td>{{ request.Opportunity.name }}</td>
+                <td>{{ request.description }}</td>
+                <td>{{ request.User.name }}</td>
+                <td>{{ getUserStatus(request.userStatus) }}</td>
+                <td>
+                  <button (click)="approveRequest(request.opportunityId, request.userId)" 
+                          [disabled]="request.userStatus === 'accepted'"
+                          class="btn-accept">Aceptar</button>
+                  <button (click)="denyRequest(request.opportunityId, request.userId)" 
+                          [disabled]="request.userStatus === 'rejected'"
+                          class="btn-deny">Denegar</button>
+                  <button (click)="toggleDetails(request.id)" 
+                          class="btn-view-more">Ver más</button>
+                </td>
+              </tr>
+              <tr *ngIf="request.showDetails" class="request-details">
+                <td colspan="5">
+                  <div>
+                    <p><strong>Nombre:</strong> {{ request.User.name }}</p>
+                    <p><strong>Email:</strong> {{ request.User.email }}</p>
+                    <p><strong>Descripción:</strong> {{ request.description }}</p>
+                    <!-- Agrega más detalles según sea necesario -->
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #noRequests>
+        <p>No hay solicitudes de usuarios.</p>
+      </ng-template>
+    </section>
   </div>
-  <ng-template #noRequests>
-    <p>No hay solicitudes de usuarios.</p>
-  </ng-template>
-</section>
-<app-footer-navigation></app-footer-navigation>
+</div>
